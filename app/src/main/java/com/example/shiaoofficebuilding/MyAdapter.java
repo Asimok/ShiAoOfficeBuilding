@@ -38,7 +38,6 @@ public class MyAdapter extends BaseAdapter{
     @Override
     public int getCount() {
         if(list.size()%4>0) {
-            Log.d("cc","if(list.size()%4>0) ");
             return list.size()/4+1;
 
         } else {
@@ -146,6 +145,7 @@ public class MyAdapter extends BaseAdapter{
                 vh.tv2.setVisibility(View.VISIBLE);
                 vh.tv12.setVisibility(View.VISIBLE);
                 vh.tv22.setVisibility(View.VISIBLE);
+                vh.parent2.setVisibility(View.VISIBLE);
                 vh.tv2.setText(itemList.get(1).getRoomNumber());
 
                 vh.tv12.setText(itemList.get(1).getStatusname());
@@ -208,6 +208,10 @@ public class MyAdapter extends BaseAdapter{
                 vh.tv2.setVisibility(View.INVISIBLE);
                 vh.tv21.setVisibility(View.INVISIBLE);
                 vh.tv22.setVisibility(View.INVISIBLE);
+                vh.parent2.setVisibility(View.INVISIBLE);
+
+
+
 
 
             }
@@ -216,6 +220,7 @@ public class MyAdapter extends BaseAdapter{
                 vh.tv3.setVisibility(View.VISIBLE);
                 vh.tv13.setVisibility(View.VISIBLE);
                 vh.tv23.setVisibility(View.VISIBLE);
+                vh.parent3.setVisibility(View.VISIBLE);
                 vh.tv3.setText(itemList.get(2).getRoomNumber());
 
                 vh.tv13.setText(itemList.get(2).getStatusname());
@@ -275,12 +280,13 @@ public class MyAdapter extends BaseAdapter{
                 vh.tv3.setVisibility(View.INVISIBLE);
                 vh.tv13.setVisibility(View.INVISIBLE);
                 vh.tv23.setVisibility(View.INVISIBLE);
+                vh.parent3.setVisibility(View.INVISIBLE);
 
             }
 
             if (itemList.size() > 3) {
                 vh.tv4.setVisibility(View.VISIBLE);
-
+                vh.parent4.setVisibility(View.VISIBLE);
                 vh.tv14.setVisibility(View.VISIBLE);
                 vh.tv24.setVisibility(View.VISIBLE);
                 vh.tv4.setText(itemList.get(3).getRoomNumber());
@@ -317,6 +323,8 @@ public class MyAdapter extends BaseAdapter{
                 }
 
                 vh.tv24.setText(itemList.get(3).getUsetypename());
+
+
                 switch (itemList.get(3).getUsetypename().trim()) {
 
                     case "公司":
@@ -334,6 +342,9 @@ public class MyAdapter extends BaseAdapter{
                         break;
 
                 }
+
+                Log.d("dd","pos  "+position+"   "+vh.tv1.getText());
+
                 vh.tv4.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -344,6 +355,7 @@ public class MyAdapter extends BaseAdapter{
                 vh.tv4.setVisibility(View.INVISIBLE);
                 vh.tv14.setVisibility(View.INVISIBLE);
                 vh.tv24.setVisibility(View.INVISIBLE);
+                vh.parent4.setVisibility(View.INVISIBLE);
             }
         }
         else

@@ -178,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
                 mapx.setRoomNumber(res);
                 mapx.setStatusname(statusname);
                 mapx.setUsetypename(usetypename);
+
                 roomInfoForAdapter.add(mapx);
                 //数据适配器
                 adapter = new MyAdapter(MainActivity.this,R.layout.showroomlist,roomInfoForAdapter);
