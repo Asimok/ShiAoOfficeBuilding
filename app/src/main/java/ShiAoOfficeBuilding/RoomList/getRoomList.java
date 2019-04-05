@@ -1,19 +1,14 @@
-package com.example.shiaoofficebuilding;
+package ShiAoOfficeBuilding.RoomList;
 
-import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.example.shiaoofficebuilding.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,7 +16,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 
 import okhttp3.Call;
@@ -31,18 +25,18 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class MainActivity extends AppCompatActivity {
+public class getRoomList extends AppCompatActivity {
     TextView tv;
     private ListView roomlv;
     private ArrayList<roomlistAdapterInfo> roomInfoForAdapter;
     private  String count;
-    MyAdapter adapter;
+    adapterForRoomList adapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.searchroom_lv_layout);
+        setContentView(R.layout.roomlist_listview_layout);
         roomInfoForAdapter = new ArrayList<roomlistAdapterInfo>();
         roomlv = findViewById(R.id.searchroomlv);
         getRoomlist();//get方法请求获取数据
@@ -65,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getRoomList.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
                     }
                 });
                 e.printStackTrace();
@@ -126,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getRoomList.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
                     }
                 });
                 e.printStackTrace();
@@ -181,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
 
                 roomInfoForAdapter.add(mapx);
                 //数据适配器
-                adapter = new MyAdapter(MainActivity.this,R.layout.showroomlist,roomInfoForAdapter);
+                adapter = new adapterForRoomList(getRoomList.this,R.layout.showroomlist,roomInfoForAdapter);
                 roomlv.setAdapter(adapter);
             }
         });

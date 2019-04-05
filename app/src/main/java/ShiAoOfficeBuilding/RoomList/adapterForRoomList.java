@@ -1,4 +1,4 @@
-package com.example.shiaoofficebuilding;
+package ShiAoOfficeBuilding.RoomList;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.shiaoofficebuilding.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +22,12 @@ import java.util.List;
  * @author tongleer.com
  *
  */
-public class MyAdapter extends BaseAdapter{
+public class adapterForRoomList extends BaseAdapter{
     protected Context context;
     protected LayoutInflater inflater;
     protected int resource;
     protected ArrayList<roomlistAdapterInfo> list;
-    public MyAdapter(Context context, int resource, ArrayList<roomlistAdapterInfo> list){
+    public adapterForRoomList(Context context, int resource, ArrayList<roomlistAdapterInfo> list){
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.resource = resource;

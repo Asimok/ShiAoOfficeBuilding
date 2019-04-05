@@ -1,4 +1,4 @@
-package com.example.shiaoofficebuilding;
+package ShiAoOfficeBuilding.RoomList;
 
 public class roomlistAdapterInfo {
 
