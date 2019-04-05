@@ -1,5 +1,6 @@
 package ShiAoOfficeBuilding.test;
-import ShiAoOfficeBuilding.Chart.Chart;
+import ShiAoOfficeBuilding.Chart.electricityUse;
+import ShiAoOfficeBuilding.Chart.waterUse;
 import  ShiAoOfficeBuilding.RoomList.getRoomList;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -21,8 +22,13 @@ public class test extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void waterwarning(View view) {
-        Intent intent =new Intent(this, Chart.class);
+    public void waterUse(View view) {
+        Intent intent =new Intent(this, waterUse.class);
+        startActivity(intent);
+    }
+
+    public void electricityUse(View view) {
+        Intent intent =new Intent(this, electricityUse.class);
         startActivity(intent);
     }
 }

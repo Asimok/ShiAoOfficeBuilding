@@ -22,7 +22,15 @@ tools:context="ShiAoOfficeBuilding.test.test">
         android:layout_height="wrap_content"
         android:text="用水折线图"
         android:textSize="@dimen/sp_15"
-        android:onClick="waterwarning"
+        android:onClick="waterUse"
+        />
+    <Button
+        android:layout_margin="@dimen/dp_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用电折线图"
+        android:textSize="@dimen/sp_15"
+        android:onClick="electricityUse"
         />
 
 </LinearLayout>

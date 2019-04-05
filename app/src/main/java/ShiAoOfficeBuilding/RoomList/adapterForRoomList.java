@@ -1,6 +1,7 @@
 package ShiAoOfficeBuilding.RoomList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,10 @@ import com.example.shiaoofficebuilding.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ShiAoOfficeBuilding.Chart.waterUse;
+
+import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * 2列ListView的适配器
@@ -140,6 +145,14 @@ public class adapterForRoomList extends BaseAdapter{
             vh.tv1.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    Intent intent;
+                    intent = new Intent(context, waterUse.class);
+                    intent.setClass(context, waterUse.class);
+                    intent.putExtra("roomnum",itemList.get(0).getRoomNumber());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+
                     Toast.makeText(context, itemList.get(0).getRoomNumber(), Toast.LENGTH_SHORT).show();
                 }
             });

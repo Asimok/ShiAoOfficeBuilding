@@ -31,7 +31,9 @@
             </intent-filter>
         </activity>
         <activity android:name="ShiAoOfficeBuilding.RoomList.getRoomList" />
-        <activity android:name="ShiAoOfficeBuilding.Chart.Chart"/>
+        <activity android:name="ShiAoOfficeBuilding.Chart.waterUse"/>
+        <activity android:name="ShiAoOfficeBuilding.Chart.electricityUse"/>
     </application>
+
 
 </manifest>
