@@ -2,7 +2,9 @@ package ShiAoOfficeBuilding.RoomList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +20,7 @@ import com.example.shiaoofficebuilding.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import ShiAoOfficeBuilding.Chart.waterUse;
-
-import static android.support.v4.content.ContextCompat.startActivity;
+import ShiAoOfficeBuilding.Chart.electricityUse;
 
 /**
  * 2列ListView的适配器
@@ -32,7 +32,7 @@ public class adapterForRoomList extends BaseAdapter{
     protected LayoutInflater inflater;
     protected int resource;
     protected ArrayList<roomlistAdapterInfo> list;
-    public adapterForRoomList(Context context, int resource, ArrayList<roomlistAdapterInfo> list){
+    public adapterForRoomList(Context context, int resource, ArrayList<roomlistAdapterInfo> list,String floor){
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.resource = resource;
@@ -91,8 +91,6 @@ public class adapterForRoomList extends BaseAdapter{
         final List<roomlistAdapterInfo> itemList = list.subList(position*4,position*4+cellCount);
         if(!itemList.isEmpty())
         {
-            Log.d("cc","进入 "+position);
-
         if (itemList.size() >0) {
             vh.tv1.setText(itemList.get(0).getRoomNumber());
             vh.tv11.setText(itemList.get(0).getStatusname());
@@ -126,8 +124,11 @@ public class adapterForRoomList extends BaseAdapter{
             }
             vh.tv21.setText(itemList.get(0).getUsetypename());
             switch (itemList.get(0).getUsetypename()) {
+
                 case "公司":
-                    vh.parent.setBackgroundColor(Color.BLUE);
+                    Resources resources = context.getResources();
+                    Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                    vh.parent.setBackgroundDrawable(btnDrawable);
                     break;
                 case "库房":
                     vh.parent.setBackgroundColor(Color.YELLOW);
@@ -142,20 +143,35 @@ public class adapterForRoomList extends BaseAdapter{
 
 
             }
-            vh.tv1.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Intent intent;
-                    intent = new Intent(context, waterUse.class);
-                    intent.setClass(context, waterUse.class);
-                    intent.putExtra("roomnum",itemList.get(0).getRoomNumber());
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-
-                    Toast.makeText(context, itemList.get(0).getRoomNumber(), Toast.LENGTH_SHORT).show();
-                }
-            });
+//            vh.parent.setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    Intent intent;
+//                    intent = new Intent(context, electricityUse.class);
+//                    intent.setClass(context, electricityUse.class);
+//                    intent.putExtra("roomnum",itemList.get(0).getRoomNumber());
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    context.startActivity(intent);
+//
+//                    Toast.makeText(context, itemList.get(0).getRoomNumber(), Toast.LENGTH_SHORT).show();
+//                }
+//            });
+            vh.parent.setOnLongClickListener(
+                    new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            Intent intent;
+                            intent = new Intent(context, electricityUse.class);
+                            intent.setClass(context, electricityUse.class);
+                            intent.putExtra("roomnum",itemList.get(0).getRoomNumber());
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
+                            Toast.makeText(context, itemList.get(0).getRoomNumber()+"长按了", Toast.LENGTH_SHORT).show();
+                            return false;
+                        }
+                    }
+            );
             if (itemList.size() > 1) {
                 vh.tv2.setVisibility(View.VISIBLE);
                 vh.tv12.setVisibility(View.VISIBLE);
@@ -199,7 +215,9 @@ public class adapterForRoomList extends BaseAdapter{
 
                 switch (itemList.get(1).getUsetypename().trim()) {
                     case "公司":
-                        vh.parent2.setBackgroundColor(Color.BLUE);
+                        Resources resources = context.getResources();
+                        Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                        vh.parent2.setBackgroundDrawable(btnDrawable);
                         break;
                     case "库房":
                         vh.parent2.setBackgroundColor(Color.YELLOW);
@@ -213,12 +231,15 @@ public class adapterForRoomList extends BaseAdapter{
                         break;
 
                 }
-                vh.tv2.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(context, itemList.get(1).getRoomNumber(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                vh.parent2.setOnLongClickListener(
+                        new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                Toast.makeText(context, "长按了", Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
+                        }
+                );
             } else {
                 vh.tv2.setVisibility(View.INVISIBLE);
                 vh.tv21.setVisibility(View.INVISIBLE);
@@ -271,7 +292,9 @@ public class adapterForRoomList extends BaseAdapter{
                 vh.tv23.setText(itemList.get(2).getUsetypename());
                 switch (itemList.get(2).getUsetypename().trim()) {
                     case "公司":
-                        vh.parent3.setBackgroundColor(Color.BLUE);
+                        Resources resources = context.getResources();
+                        Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                        vh.parent3.setBackgroundDrawable(btnDrawable);
                         break;
                     case "库房":
                         vh.parent3.setBackgroundColor(Color.YELLOW);
@@ -285,12 +308,15 @@ public class adapterForRoomList extends BaseAdapter{
                         break;
 
                 }
-                vh.tv3.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(context, itemList.get(2).getRoomNumber(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                vh.parent3.setOnLongClickListener(
+                        new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                Toast.makeText(context, "长按了", Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
+                        }
+                );
             } else {
                 vh.tv3.setVisibility(View.INVISIBLE);
                 vh.tv13.setVisibility(View.INVISIBLE);
@@ -343,7 +369,9 @@ public class adapterForRoomList extends BaseAdapter{
                 switch (itemList.get(3).getUsetypename().trim()) {
 
                     case "公司":
-                        vh.parent4.setBackgroundColor(Color.BLUE);
+                        Resources resources = context.getResources();
+                        Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                        vh.parent4.setBackgroundDrawable(btnDrawable);
                         break;
                     case "库房":
                         vh.parent4.setBackgroundColor(Color.YELLOW);
@@ -358,24 +386,21 @@ public class adapterForRoomList extends BaseAdapter{
 
                 }
 
-                Log.d("dd","pos  "+position+"   "+vh.tv1.getText());
-
-                vh.tv4.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(context, itemList.get(3).getRoomNumber(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                vh.parent4.setOnLongClickListener(
+                        new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                Toast.makeText(context, "长按了", Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
+                        }
+                );
             } else {
                 vh.tv4.setVisibility(View.INVISIBLE);
                 vh.tv14.setVisibility(View.INVISIBLE);
                 vh.tv24.setVisibility(View.INVISIBLE);
                 vh.parent4.setVisibility(View.INVISIBLE);
             }
-        }
-        else
-        {
-Log.d("cc","caxacac");
         }
         }
         return convertView;
@@ -403,5 +428,15 @@ Log.d("cc","caxacac");
         RelativeLayout parent3;
         RelativeLayout parent4;
 
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
+
+    @Override
+    public void notifyDataSetInvalidated() {
+        super.notifyDataSetInvalidated();
     }
 }

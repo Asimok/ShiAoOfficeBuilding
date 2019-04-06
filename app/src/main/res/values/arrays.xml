@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="floor1_6">
+        <item>1层</item>
+        <item>2层</item>
+        <item>3层</item>
+        <item>4层</item>
+        <item>5层</item>
+        <item>6层</item>
+
+    </string-array>
+    <string-array name="floor7_12">
+        <item>7层</item>
+        <item>8层</item>
+        <item>9层</item>
+        <item>10层</item>
+        <item>11层</item>
+        <item>12层</item>
+
+    </string-array>
+    <string-array name="floor13_18">
+        <item>13层</item>
+        <item>14层</item>
+        <item>15层</item>
+        <item>16层</item>
+        <item>17层</item>
+        <item>18层</item>
+
+    </string-array>
+    <string-array name="floor19_24">
+        <item>19层</item>
+        <item>20层</item>
+        <item>21层</item>
+        <item>22层</item>
+        <item>23层</item>
+        <item>24层</item>
+
+    </string-array>
+
+
+</resources>
