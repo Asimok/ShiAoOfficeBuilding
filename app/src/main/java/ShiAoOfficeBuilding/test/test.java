@@ -1,5 +1,6 @@
 package ShiAoOfficeBuilding.test;
 import ShiAoOfficeBuilding.Apartment.Apartment.apartmentActivity;
+import ShiAoOfficeBuilding.Apartment.Apartment.staffActivity;
 import ShiAoOfficeBuilding.Chart.waterUse;
 import ShiAoOfficeBuilding.Chart.electricityUse;
 import  ShiAoOfficeBuilding.RoomList.getRoomList;
@@ -37,4 +38,9 @@ public class test extends AppCompatActivity {
         Intent intent =new Intent(this, apartmentActivity.class);
         startActivity(intent);
     }
+    public void staff(View view) {
+        Intent intent =new Intent(this, staffActivity.class);
+        startActivity(intent);
+    }
+
 }

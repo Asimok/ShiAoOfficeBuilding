@@ -34,6 +34,7 @@
         <activity android:name="ShiAoOfficeBuilding.Chart.electricityUse"/>
         <activity android:name="ShiAoOfficeBuilding.Chart.waterUse"/>
         <activity android:name="ShiAoOfficeBuilding.Apartment.Apartment.apartmentActivity"/>
+        <activity android:name="ShiAoOfficeBuilding.Apartment.Apartment.staffActivity"/>
     </application>
 
 

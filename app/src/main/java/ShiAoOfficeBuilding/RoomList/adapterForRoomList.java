@@ -127,19 +127,27 @@ public class adapterForRoomList extends BaseAdapter{
 
                 case "公司":
                     Resources resources = context.getResources();
-                    Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                    Drawable btnDrawable = resources.getDrawable(R.drawable.room_bg_blue);
                     vh.parent.setBackgroundDrawable(btnDrawable);
                     break;
                 case "库房":
-                    vh.parent.setBackgroundColor(Color.YELLOW);
+                     resources = context.getResources();
+                     btnDrawable = resources.getDrawable(R.drawable.room_bg_purple);
+                    vh.parent.setBackgroundDrawable(btnDrawable);
                     break;
                 case "宿舍":
-                    vh.parent.setBackgroundColor(Color.CYAN);
+                    resources = context.getResources();
+                    btnDrawable = resources.getDrawable(R.drawable.room_bg_orange);
+                    vh.parent.setBackgroundDrawable(btnDrawable);
                     break;
                 case "":
                     vh.tv21.setText("---");
-                    vh.parent.setBackgroundColor(Color.RED);
+                    resources = context.getResources();
+                    btnDrawable = resources.getDrawable(R.drawable.room_bg_black);
+                    vh.parent.setBackgroundDrawable(btnDrawable);
                     break;
+                    default:
+                        vh.parent.setBackgroundColor(Color.parseColor("#3abfd1"));
 
 
             }
@@ -164,10 +172,11 @@ public class adapterForRoomList extends BaseAdapter{
                             Intent intent;
                             intent = new Intent(context, electricityUse.class);
                             intent.setClass(context, electricityUse.class);
-                            intent.putExtra("roomnum",itemList.get(0).getRoomNumber());
+                            intent.putExtra("roomnum",itemList.get(1).getRoomNumber());
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(intent);
-                            Toast.makeText(context, itemList.get(0).getRoomNumber()+"长按了", Toast.LENGTH_SHORT).show();
+                            // context.startActivity(intent);
+                            Toast.makeText(context, itemList.get(1).getRoomNumber()+"长按了", Toast.LENGTH_SHORT).show();
                             return false;
                         }
                     }
@@ -216,27 +225,43 @@ public class adapterForRoomList extends BaseAdapter{
                 switch (itemList.get(1).getUsetypename().trim()) {
                     case "公司":
                         Resources resources = context.getResources();
-                        Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                        Drawable btnDrawable = resources.getDrawable(R.drawable.room_bg_blue);
                         vh.parent2.setBackgroundDrawable(btnDrawable);
                         break;
                     case "库房":
-                        vh.parent2.setBackgroundColor(Color.YELLOW);
+                         resources = context.getResources();
+                         btnDrawable = resources.getDrawable(R.drawable.room_bg_purple);
+                        vh.parent2.setBackgroundDrawable(btnDrawable);
                         break;
                     case "宿舍":
-                        vh.parent2.setBackgroundColor(Color.CYAN);
+                        resources = context.getResources();
+                        btnDrawable = resources.getDrawable(R.drawable.room_bg_orange);
+                        vh.parent2.setBackgroundDrawable(btnDrawable);
                         break;
                     case "":
                         vh.tv22.setText("---");
-                        vh.parent2.setBackgroundColor(Color.RED);
+                        resources = context.getResources();
+                        btnDrawable = resources.getDrawable(R.drawable.room_bg_black);
+                        vh.parent2.setBackgroundDrawable(btnDrawable);
                         break;
+                    default:
+                        vh.parent2.setBackgroundColor(Color.parseColor("#3abfd1"));
 
                 }
                 vh.parent2.setOnLongClickListener(
                         new View.OnLongClickListener() {
                             @Override
                             public boolean onLongClick(View v) {
-                                Toast.makeText(context, "长按了", Toast.LENGTH_SHORT).show();
+                                Intent intent;
+                                intent = new Intent(context, electricityUse.class);
+                                intent.setClass(context, electricityUse.class);
+                                intent.putExtra("roomnum",itemList.get(1).getRoomNumber());
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                context.startActivity(intent);
+                                // context.startActivity(intent);
+                                Toast.makeText(context, itemList.get(1).getRoomNumber()+"长按了", Toast.LENGTH_SHORT).show();
                                 return false;
+
                             }
                         }
                 );
@@ -293,19 +318,27 @@ public class adapterForRoomList extends BaseAdapter{
                 switch (itemList.get(2).getUsetypename().trim()) {
                     case "公司":
                         Resources resources = context.getResources();
-                        Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                        Drawable btnDrawable = resources.getDrawable(R.drawable.room_bg_blue);
                         vh.parent3.setBackgroundDrawable(btnDrawable);
                         break;
                     case "库房":
-                        vh.parent3.setBackgroundColor(Color.YELLOW);
+                       resources = context.getResources();
+                       btnDrawable = resources.getDrawable(R.drawable.room_bg_purple);
+                        vh.parent3.setBackgroundDrawable(btnDrawable);
                         break;
                     case "宿舍":
-                        vh.parent3.setBackgroundColor(Color.CYAN);
+                        resources = context.getResources();
+                        btnDrawable = resources.getDrawable(R.drawable.room_bg_orange);
+                        vh.parent3.setBackgroundDrawable(btnDrawable);
                         break;
                     case "":
                         vh.tv23.setText("---");
-                        vh.parent3.setBackgroundColor(Color.RED);
+                        resources = context.getResources();
+                        btnDrawable = resources.getDrawable(R.drawable.room_bg_black);
+                        vh.parent3.setBackgroundDrawable(btnDrawable);
                         break;
+                        default:
+                            vh.parent3.setBackgroundColor(Color.parseColor("#3abfd1"));
 
                 }
                 vh.parent3.setOnLongClickListener(
@@ -370,19 +403,27 @@ public class adapterForRoomList extends BaseAdapter{
 
                     case "公司":
                         Resources resources = context.getResources();
-                        Drawable btnDrawable = resources.getDrawable(R.drawable.beijing);
+                        Drawable btnDrawable = resources.getDrawable(R.drawable.room_bg_blue);
                         vh.parent4.setBackgroundDrawable(btnDrawable);
                         break;
                     case "库房":
-                        vh.parent4.setBackgroundColor(Color.YELLOW);
+                         resources = context.getResources();
+                         btnDrawable = resources.getDrawable(R.drawable.room_bg_purple);
+                        vh.parent4.setBackgroundDrawable(btnDrawable);
                         break;
                     case "宿舍":
-                        vh.parent4.setBackgroundColor(Color.CYAN);
+                        resources = context.getResources();
+                       btnDrawable = resources.getDrawable(R.drawable.room_bg_orange);
+                        vh.parent4.setBackgroundDrawable(btnDrawable);
                         break;
                     case "":
                         vh.tv24.setText("---");
-                        vh.parent4.setBackgroundColor(Color.RED);
+                         resources = context.getResources();
+                         btnDrawable = resources.getDrawable(R.drawable.room_bg_black);
+                        vh.parent4.setBackgroundDrawable(btnDrawable);
                         break;
+                        default:
+                            vh.parent4.setBackgroundColor(Color.parseColor("#3abfd1"));
 
                 }
 

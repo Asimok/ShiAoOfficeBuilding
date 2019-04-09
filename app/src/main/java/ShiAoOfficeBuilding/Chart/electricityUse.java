@@ -1,6 +1,7 @@
 package ShiAoOfficeBuilding.Chart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Looper;
@@ -41,11 +42,14 @@ public class electricityUse extends AppCompatActivity {
     String count;
     String url;
     public List<Float> userinfo;
+    public List<Float> newuserinfo;
     private Context content;
     private List<String> mList;
     private List<String> mList2;
     private List<userlistInfo> useinfo;
     List<Entry> entries;
+
+
 private returnData getwaterUse;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +57,13 @@ private returnData getwaterUse;
         mList=new ArrayList<>();
         mList2=new ArrayList<>();
         userinfo=new ArrayList<>();
+        newuserinfo=new ArrayList<>();
         entries=new ArrayList<>();
+        Intent intent=getIntent();
+        String roomnum=intent.getStringExtra("roomnum");
 
         try {
-            GetUrl("0302");
+            GetUrl(roomnum);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -157,20 +164,13 @@ private returnData getwaterUse;
                         userinfo.add(usernum11);
                         userinfo.add(usernum12);
 
-                       for(int i1=0;i1<12;i1++)
-                       {
-                           Log.d("gg","water "+i1 +"    "+userinfo.get(i1));
-                       }
-
 
                     LineChart mLineChart = (LineChart) findViewById(R.id.lineChart);
                     //显示边界
                     mLineChart.setDrawBorders(true);
                     String thisYearMonth=dateUtils.getYearAndMonth();
 
-
-
-                    for(int i=0;i<12;i++)
+                    for(int i=0;i<13;i++)
                     {
                         try {
                             mList2.add(dateUtils.subMonth(thisYearMonth,-1*i));
@@ -179,28 +179,40 @@ private returnData getwaterUse;
                             e.printStackTrace();
                         }
                     }
-                    for(int i=0;i<12;i++)
+                    for(int i=0;i<13;i++)
                     {
-                        mList.add(mList2.get(11-i));
+                        mList.add(mList2.get(12-i));
 
 
                     }
                     //设置数据
 
 
+                    int smonth= Integer.parseInt(dateUtils.getMonth());
+                    for(int j=smonth-1;j<12;j++)
+                    {
+                        newuserinfo.add(userinfo.get(j));
+                    }
+
+                    int num=smonth;
+                    for(int a=num;a>0;a--)
+                    {
+                        Log.d("ff","   "+a);
+                        newuserinfo.add(0.0f);
+                    }
 
                     double maxvalue=0.0;
-                    for (int i = 0; i < 12; i++) {
-                        entries.add(new Entry(i, userinfo.get(i)));
-                        if(maxvalue<userinfo.get(i))
+                    for (int i = 0; i < 13; i++) {
+                        entries.add(new Entry(i, newuserinfo.get(i)));
+                        if(maxvalue<newuserinfo.get(i))
                         {
-                            maxvalue=userinfo.get(i);
+                            maxvalue=newuserinfo.get(i);
                         }
-                        Log.d("gg","water "+i +"    "+userinfo.get(i));
+                        Log.d("gg","water "+i +"    "+newuserinfo.get(i));
                     }
 
                     XAxis xAxis = mLineChart.getXAxis();
-                    xAxis.setLabelCount(12, true);
+                    xAxis.setLabelCount(13, true);
                     xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
                     xAxis.setLabelRotationAngle(90);
                     xAxis.setValueFormatter(new IAxisValueFormatter() {

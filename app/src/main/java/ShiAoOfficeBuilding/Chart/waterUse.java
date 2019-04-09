@@ -46,6 +46,7 @@ public class waterUse extends AppCompatActivity {
     private List<String> mList2;
     private List<userlistInfo> useinfo;
     List<Entry> entries;
+    public List<Float> newuserinfo;
 private returnData getwaterUse;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ private returnData getwaterUse;
         mList2=new ArrayList<>();
         userinfo=new ArrayList<>();
         entries=new ArrayList<>();
-
+        newuserinfo=new ArrayList<>();
         try {
             GetUrl("0201");
         } catch (ParseException e) {
@@ -169,7 +170,7 @@ private returnData getwaterUse;
 
 
 
-                    for(int i=0;i<12;i++)
+                    for(int i=0;i<13;i++)
                     {
                         try {
                             mList2.add(dateUtils.subMonth(thisYearMonth,-1*i));
@@ -178,27 +179,37 @@ private returnData getwaterUse;
                             e.printStackTrace();
                         }
                     }
-                    for(int i=0;i<12;i++)
+                    for(int i=0;i<13;i++)
                     {
-                        mList.add(mList2.get(11-i));
+                        mList.add(mList2.get(12-i));
 
 
                     }
                     //设置数据
 
+                    int smonth= Integer.parseInt(dateUtils.getMonth());
+                    for(int j=smonth-1;j<12;j++)
+                    {
+                        newuserinfo.add(userinfo.get(j));
+                    }
 
+                    int num=smonth;
+                    for(int a=num;a>0;a--)
+                    {
+                        Log.d("ff","   "+a);
+                        newuserinfo.add(0.0f);
+                    }
                     double maxvalue=0.0;
-                    for (int i = 0; i < 12; i++) {
-                        entries.add(new Entry(i, userinfo.get(i)));
-                        if(maxvalue<userinfo.get(i))
+                    for (int i = 0; i < 13; i++) {
+                        entries.add(new Entry(i, newuserinfo.get(i)));
+                        if(maxvalue<newuserinfo.get(i))
                         {
-                            maxvalue=userinfo.get(i);
+                            maxvalue=newuserinfo.get(i);
                         }
-                        Log.d("gg","water "+i +"    "+userinfo.get(i));
                     }
 
                     XAxis xAxis = mLineChart.getXAxis();
-                    xAxis.setLabelCount(12, true);
+                    xAxis.setLabelCount(13, true);
                     xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
                     xAxis.setLabelRotationAngle(90);
                     xAxis.setValueFormatter(new IAxisValueFormatter() {

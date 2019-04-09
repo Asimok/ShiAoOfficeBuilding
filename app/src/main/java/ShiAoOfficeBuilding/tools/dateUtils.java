@@ -17,7 +17,13 @@ public class dateUtils {
         System.out.println(reStr);
         return reStr;
     }
-
+    public static String getMonth() {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM");
+        String reStr = sdf.format(date);
+        System.out.println(reStr);
+        return reStr;
+    }
     public static String getYear() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
