@@ -115,8 +115,14 @@ public class getRoomList extends AppCompatActivity implements AdapterView.OnItem
                         //使用
                         String usetypename = jsonObj2.getString("usetypename");
 
+                        String companyname = jsonObj2.getString("companyname");
+
+                        String companytype = jsonObj2.getString("companytype");
+
+                        String useobjguid = jsonObj2.getString("useobjguid");
+
                         if(roomnum.substring(0,2).equals(showfloor)) {
-                            showRoomlistResult(roomnum, statusname, usetypename, pos);
+                            showRoomlistResult(roomnum, statusname, usetypename, pos,companytype,companyname,useobjguid);
                         }
 
                     }
@@ -184,7 +190,7 @@ public class getRoomList extends AppCompatActivity implements AdapterView.OnItem
             }
         });
     }
-    public void showRoomlistResult(final String res,final String statusname,final String usetypename,final  int pos )
+    public void showRoomlistResult(final String res,final String statusname,final String usetypename,final  int pos,final String companytype,final String companyname,final String useobjguid )
     //封装遍历的数据
     {
         runOnUiThread(new Runnable() {
@@ -195,7 +201,9 @@ public class getRoomList extends AppCompatActivity implements AdapterView.OnItem
                 mapx.setRoomNumber(res);
                 mapx.setStatusname(statusname);
                 mapx.setUsetypename(usetypename);
-
+                mapx.setCompanytype(companytype);
+                mapx.setCompanyname(companyname);
+                mapx.setUseobjguid(useobjguid);
                 roomInfoForAdapter.add(mapx);
                 //数据适配器
                 adapter = new adapterForRoomList(getRoomList.this,R.layout.showroomlist,roomInfoForAdapter,showfloor);
@@ -283,7 +291,7 @@ public  String judgefloor(String floor)
     }
     else  if(floor.equals("6层"))
     {
-        numfloor="beijing";
+        numfloor="06";
     }
     else  if(floor.equals("7层"))
     {

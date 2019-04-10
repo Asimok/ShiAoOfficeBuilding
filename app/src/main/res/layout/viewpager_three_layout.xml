@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:theme="@style/Base.AlertDialog.AppCompat.Light"
+    android:layout_width="330dp"
+    android:layout_height="600dp"
     android:orientation="vertical">
 
     <LinearLayout

@@ -1,5 +1,6 @@
 package ShiAoOfficeBuilding.viewPager;
 
+import android.app.Activity;
 import android.app.LocalActivityManager;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -7,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,18 +21,24 @@ import java.util.ArrayList;
 import ShiAoOfficeBuilding.Apartment.Apartment.apartmentActivity;
 import ShiAoOfficeBuilding.Apartment.Apartment.staffActivity;
 import ShiAoOfficeBuilding.Chart.electricityUse;
+import ShiAoOfficeBuilding.Chart.fundation_Activity;
 import ShiAoOfficeBuilding.Chart.waterUse;
 import ShiAoOfficeBuilding.RoomList.getRoomList;
 
 
 
-public class three_ViewPager extends AppCompatActivity implements View.OnClickListener {
+public class three_ViewPager extends Activity implements View.OnClickListener {
     private NoScrollViewPager mViewPager = null;
     private ImageView mCursorImg = null;
     private TextView mOneTv = null;
     private TextView mTwoTv = null;
     private TextView mThreeTv = null;
-
+    private String RoomNumber;
+    private String statusname;
+    private String usetypename;
+    private String companyname;
+    private String companytype;
+    private String useobjguid;
     private ViewPagerAdapter mAdapter = null;
     private ArrayList<View> mPageList = null;
     private LocalActivityManager manager;
@@ -43,7 +51,7 @@ public class three_ViewPager extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewpager_three_layout);
-        Toast.makeText(this, "下拉刷新！", Toast.LENGTH_SHORT).show();
+     initdata();
         mViewPager = findViewById(R.id.view_pager);
         mOneTv = findViewById(R.id.viewpager_tv_one1);
         mTwoTv = findViewById(R.id.viewpager_tv_two1);
@@ -52,11 +60,22 @@ public class three_ViewPager extends AppCompatActivity implements View.OnClickLi
         manager = new LocalActivityManager(this, true);
         manager.dispatchCreate(savedInstanceState);
 
-        intent1 = new Intent(this, waterUse.class);
+        intent1 = new Intent(this, fundation_Activity.class);
+        intent1.putExtra("companyname",companyname);
+        intent1.putExtra("companytype",companytype);
+        intent1.putExtra("useobjguid",useobjguid);
+
+
         View tab01 = manager.startActivity("viewID1", intent1).getDecorView();
-        intent2 = new Intent(this, electricityUse.class);
+        intent2 = new Intent(this, waterUse.class);
+        intent2.putExtra("roomnum",RoomNumber);
+
+
         View tab02 = manager.startActivity("viewID1", intent2).getDecorView();
-        intent3 = new Intent(this, getRoomList.class);
+        intent3 = new Intent(this, electricityUse.class);
+        intent3.putExtra("roomnum",RoomNumber);
+
+
         View tab03 = manager.startActivity("viewID1", intent3).getDecorView();
 
 
@@ -76,8 +95,28 @@ public class three_ViewPager extends AppCompatActivity implements View.OnClickLi
 
         // 初始默认第一页
         mViewPager.setCurrentItem(0);
+        mOneTv.setTextColor(Color.parseColor("#ffffff"));
+        mOneTv.setBackgroundColor(Color.parseColor("#FF8BC34A"));
+
+        mTwoTv.setBackgroundColor(Color.parseColor("#ffffff"));
+        mThreeTv.setBackgroundColor(Color.parseColor("#ffffff"));
+
+        mTwoTv.setTextColor(Color.parseColor("#000000"));
+        mThreeTv.setTextColor(Color.parseColor("#000000"));
         mViewPager.setNoScroll(true);
 
+    }
+
+    private void initdata() {
+        Intent intent=getIntent();
+        RoomNumber  =intent.getStringExtra( "roomnum"      );
+        statusname  =intent.getStringExtra( "statusname"   );
+        usetypename  =intent.getStringExtra("usetypename" );
+        companyname  =intent.getStringExtra("companyname" );
+        companytype  =intent.getStringExtra("companytype" );
+        useobjguid   =intent.getStringExtra("useobjguid"   );
+
+        Log.d("ff", RoomNumber + statusname + usetypename + companyname + companytype + useobjguid);
     }
 
     @Override

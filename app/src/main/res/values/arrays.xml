@@ -11,6 +11,7 @@
 
     </string-array>
     <string-array name="floor7_12">
+        <item>7-12</item>
         <item>7层</item>
         <item>8层</item>
         <item>9层</item>
@@ -20,6 +21,7 @@
 
     </string-array>
     <string-array name="floor13_18">
+        <item>13-18</item>
         <item>13层</item>
         <item>14层</item>
         <item>15层</item>
@@ -29,6 +31,7 @@
 
     </string-array>
     <string-array name="floor19_24">
+        <item>19-20</item>
         <item>19层</item>
         <item>20层</item>
         <item>21层</item>

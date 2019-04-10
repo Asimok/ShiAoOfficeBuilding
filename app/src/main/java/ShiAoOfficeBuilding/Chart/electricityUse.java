@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.shiaoofficebuilding.R;
@@ -41,16 +42,17 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class electricityUse extends Activity {
-    String count;
-    String url;
-    public List<Float> userinfo;
-    public List<Float> newuserinfo;
+public class electricityUse extends AppCompatActivity {
+    private String count,roomnum="",thisyear="2019";
+    private String url;
+    private List<Float> userinfo;
+    private List<Float> newuserinfo;
     private Context content;
     private List<String> mList;
     private List<String> mList2;
-    private List<userlistInfo> useinfo;
-    List<Entry> entries;
+    private EditText edyear;
+    private List<Entry> entries;
+
 
 
 private returnData getwaterUse;
@@ -61,33 +63,33 @@ private returnData getwaterUse;
         // 去掉Activity上面的状态栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.electricity_layout);
+        edyear=findViewById(R.id.year);
         mList=new ArrayList<>();
         mList2=new ArrayList<>();
         userinfo=new ArrayList<>();
         newuserinfo=new ArrayList<>();
         entries=new ArrayList<>();
+        thisyear=dateUtils.getYear();
         Intent intent=getIntent();
-        String roomnum=intent.getStringExtra("roomnum");
-
+        roomnum=intent.getStringExtra("roomnum");
+        Log.v("ee","电 "+roomnum);
         try {
-            GetUrl(roomnum);
+            thisyear = dateUtils.getYear();
+            GetUrl(roomnum,thisyear);
+            Log.d("ee","电 的  roomnum"+roomnum+"  thisyear "+thisyear);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-
-
     }
 
 
-    public void GetUrl(String roomnum1) throws ParseException {
+    public void GetUrl(String roomnum1,String yy) throws ParseException {
 
-        String yy = dateUtils.getYear();
-
-        yy = dateUtils.subyear(yy,-1);
-        Log.d("ff","yy "+yy);
-        url = "http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=meterinfo" +
+            Log.d("ff",yy);
+            url = "http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=meterinfo" +
                 "&buildguid=20180518063531-d1dcf9d1-3b98-4ddc-9588-e9bf55779f15&roomnum="+roomnum1+"&year="+yy;
 
         final OkHttpClient okHttpClient = new OkHttpClient();
@@ -111,7 +113,7 @@ private returnData getwaterUse;
             public void onResponse(Call call, Response response) throws IOException {
 
                 String res = response.body().string();//获取到传过来的字符串
-                Log.d("ff","  res  " +res);
+                Log.d("ee","  电的  " +res);
                 try {
                     JSONObject jsonObj = new JSONObject(res);
 
@@ -176,51 +178,27 @@ private returnData getwaterUse;
                     LineChart mLineChart = (LineChart) findViewById(R.id.lineChart);
                     //显示边界
                     mLineChart.setDrawBorders(true);
-                    String thisYearMonth=dateUtils.getYearAndMonth();
-
-                    for(int i=0;i<13;i++)
+                    for(int i=1;i<13;i++)
                     {
-                        try {
-                            mList2.add(dateUtils.subMonth(thisYearMonth,-1*i));
-                            Log.d("cc",dateUtils.subMonth(thisYearMonth,-1*i));
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    for(int i=0;i<13;i++)
-                    {
-                        mList.add(mList2.get(12-i));
 
+                        mList.add(thisyear+"年"+i+"月");
 
                     }
                     //设置数据
 
 
-                    int smonth= Integer.parseInt(dateUtils.getMonth());
-                    for(int j=smonth-1;j<12;j++)
-                    {
-                        newuserinfo.add(userinfo.get(j));
-                    }
-
-                    int num=smonth;
-                    for(int a=num;a>0;a--)
-                    {
-                        Log.d("ff","   "+a);
-                        newuserinfo.add(0.0f);
-                    }
 
                     double maxvalue=0.0;
-                    for (int i = 0; i < 13; i++) {
-                        entries.add(new Entry(i, newuserinfo.get(i)));
-                        if(maxvalue<newuserinfo.get(i))
+                    for (int i = 0; i < 12; i++) {
+                        entries.add(new Entry(i, userinfo.get(i)));
+                        if(maxvalue<userinfo.get(i))
                         {
-                            maxvalue=newuserinfo.get(i);
+                            maxvalue=userinfo.get(i);
                         }
-                        Log.d("gg","water "+i +"    "+newuserinfo.get(i));
                     }
 
                     XAxis xAxis = mLineChart.getXAxis();
-                    xAxis.setLabelCount(13, true);
+                    xAxis.setLabelCount(12, true);
                     xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
                     xAxis.setLabelRotationAngle(90);
                     xAxis.setValueFormatter(new IAxisValueFormatter() {
@@ -235,10 +213,8 @@ private returnData getwaterUse;
 
                     leftYAxis.setAxisMinimum(0f);
                     leftYAxis.setAxisMaximum((float) maxvalue+5);
-//
-//                    rightYAxis.setAxisMinimum(0f);
-//                    rightYAxis.setAxisMaximum(5f);
-//                    rightYAxis.setEnabled(false); //右侧Y轴不显示
+
+                    rightYAxis.setEnabled(false); //右侧Y轴不显示
 
 
 //描述
@@ -262,7 +238,7 @@ private returnData getwaterUse;
                     legend.setWordWrapEnabled(true);
 
                     //一个LineDataSet就是一条线
-                    LineDataSet lineDataSet = new LineDataSet(entries, "近年电费变化图");
+                    LineDataSet lineDataSet = new LineDataSet(entries, thisyear+"电费变化图");
                     //设置曲线值的圆点是实心还是空心
                     lineDataSet.setDrawCircleHole(false);
                     //设置显示值的字体大小
@@ -279,7 +255,15 @@ private returnData getwaterUse;
 
     }
 
-    public void getinfo(View view) {
-
+    public void getinfo(View view) throws ParseException {
+        if(!edyear.getText().toString().equals(""))
+        {
+            thisyear=edyear.getText().toString();
+        }
+        else
+            thisyear=dateUtils.getYear();
+        userinfo.clear();
+        mList.clear();
+        GetUrl(roomnum,thisyear);
     }
 }

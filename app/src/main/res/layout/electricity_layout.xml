@@ -2,17 +2,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:theme="@style/Base.AlertDialog.AppCompat.Light">
+    android:orientation="vertical">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/lineChart"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_centerInParent="true"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="获取"
-        android:onClick="getinfo"/>
+       android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/dp_50"/>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_marginBottom="@dimen/dp_70"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/year"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="wrap_content"
+            android:hint="输入年份"
+            android:textColorHint="#000000"
+            android:textColor="#000000"
+            />
+        <Button
+            android:id="@+id/getinfo"
+            android:layout_toRightOf="@id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取"
+            android:onClick="getinfo"/>
+    </LinearLayout>
 </RelativeLayout>

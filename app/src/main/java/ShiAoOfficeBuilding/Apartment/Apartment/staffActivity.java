@@ -1,5 +1,6 @@
 package ShiAoOfficeBuilding.Apartment.Apartment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -39,16 +40,18 @@ public class staffActivity extends AppCompatActivity {
         setContentView(R.layout.apartment_listview_layout);
         apartmentlistInfo = new ArrayList<ApartmentlistInfo>();
         searchroomlv = findViewById(R.id.apartmentlv);
-        getdormitorylist();//get方法请求获取数据
+        Intent intent=getIntent();
+        String  guid=intent.getStringExtra("useobjguid");
+        getdormitorylist(guid);//get方法请求获取数据
 
 
     }
 
-    private void getdormitorylist() {
+    private void getdormitorylist(String guid) {
 
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=workerlist&guid=20180724144003-03dd66bb-1d9c-4196-b6c8-688f4621d59d")
+                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=workerlist&guid="+guid)
                 .get()
                 .build();
         Call call = okhttpClient.newCall(request);

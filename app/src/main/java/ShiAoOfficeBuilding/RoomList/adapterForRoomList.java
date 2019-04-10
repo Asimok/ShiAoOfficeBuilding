@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ShiAoOfficeBuilding.Chart.electricityUse;
+import ShiAoOfficeBuilding.viewPager.three_ViewPager;
 
 /**
  * 2列ListView的适配器
@@ -97,30 +98,25 @@ public class adapterForRoomList extends BaseAdapter{
 
             switch (itemList.get(0).getStatusname()) {
                 case "自用":
-                    vh.tv1.setTextColor(Color.GREEN);
-                    vh.tv11.setTextColor(Color.GREEN);
-                    vh.tv21.setTextColor(Color.GREEN);
+                    vh.tv1.setBackgroundColor(Color.GREEN);
+
                     break;
                 case "出租":
-                    vh.tv1.setTextColor(Color.GRAY);
-                    vh.tv11.setTextColor(Color.GRAY);
-                    vh.tv21.setTextColor(Color.GRAY);
+                    vh.tv1.setBackgroundColor(Color.GRAY);
+
                     break;
                 case "":
                     vh.tv11.setText("---");
-                    vh.tv1.setTextColor(Color.WHITE);
-                    vh.tv11.setTextColor(Color.WHITE);
-                    vh.tv21.setTextColor(Color.WHITE);
+                    vh.tv1.setBackgroundColor(Color.parseColor("#b34d4d"));
+
                     break;
                 case "自住":
-                    vh.tv1.setTextColor(Color.LTGRAY);
-                    vh.tv11.setTextColor(Color.LTGRAY);
-                    vh.tv21.setTextColor(Color.LTGRAY);
+                    vh.tv1.setBackgroundColor(Color.LTGRAY);
+
                     break;
                 default:
-                    vh.tv1.setTextColor(Color.parseColor("#3abfd1"));
-                    vh.tv11.setTextColor(Color.parseColor("#3abfd1"));
-                    vh.tv21.setTextColor(Color.parseColor("#3abfd1"));
+                    vh.tv1.setBackgroundColor(Color.parseColor("#3abfd1"));
+
             }
             vh.tv21.setText(itemList.get(0).getUsetypename());
             switch (itemList.get(0).getUsetypename()) {
@@ -151,32 +147,22 @@ public class adapterForRoomList extends BaseAdapter{
 
 
             }
-//            vh.parent.setOnClickListener(new OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    Intent intent;
-//                    intent = new Intent(context, electricityUse.class);
-//                    intent.setClass(context, electricityUse.class);
-//                    intent.putExtra("roomnum",itemList.get(0).getRoomNumber());
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    context.startActivity(intent);
-//
-//                    Toast.makeText(context, itemList.get(0).getRoomNumber(), Toast.LENGTH_SHORT).show();
-//                }
-//            });
+
             vh.parent.setOnLongClickListener(
                     new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
                             Intent intent;
-                            intent = new Intent(context, electricityUse.class);
-                            intent.setClass(context, electricityUse.class);
-                            intent.putExtra("roomnum",itemList.get(1).getRoomNumber());
+                            intent = new Intent(context, three_ViewPager.class);
+                            intent.setClass(context, three_ViewPager.class);
+                            intent.putExtra("roomnum"    ,itemList.get(0).getRoomNumber());
+                            intent.putExtra("statusname" ,itemList.get(0).getStatusname());
+                            intent.putExtra("usetypename",itemList.get(0).getUsetypename());
+                            intent.putExtra("companyname",itemList.get(0).getCompanyname());
+                            intent.putExtra("companytype",itemList.get(0).getCompanytype());
+                            intent.putExtra("useobjguid" ,itemList.get(0).getUseobjguid());
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(intent);
-                            // context.startActivity(intent);
-                            Toast.makeText(context, itemList.get(1).getRoomNumber()+"长按了", Toast.LENGTH_SHORT).show();
                             return false;
                         }
                     }
@@ -192,30 +178,26 @@ public class adapterForRoomList extends BaseAdapter{
 
                 switch (itemList.get(1).getStatusname().trim()) {
                     case "自用":
-                        vh.tv2.setTextColor(Color.GREEN);
-                        vh.tv12.setTextColor(Color.GREEN);
-                        vh.tv22.setTextColor(Color.GREEN);
+                        vh.tv2.setBackgroundColor(Color.GREEN);
+
                         break;
                     case "出租":
-                        vh.tv2.setTextColor(Color.GRAY);
-                        vh.tv12.setTextColor(Color.GRAY);
-                        vh.tv22.setTextColor(Color.GRAY);
+                        vh.tv2.setBackgroundColor(Color.GRAY);
+
+
                         break;
                     case "自住":
-                        vh.tv2.setTextColor(Color.LTGRAY);
-                        vh.tv12.setTextColor(Color.LTGRAY);
-                        vh.tv22.setTextColor(Color.LTGRAY);
+                        vh.tv2.setBackgroundColor(Color.LTGRAY);
+
                         break;
                     case "":
                         vh.tv12.setText("---");
-                        vh.tv2.setTextColor(Color.WHITE);
-                        vh.tv12.setTextColor(Color.WHITE);
-                        vh.tv22.setTextColor(Color.WHITE);
+                        vh.tv2.setBackgroundColor(Color.parseColor("#b34d4d"));
+
                         break;
                     default:
-                        vh.tv2.setTextColor(Color.parseColor("#3abfd1"));
-                        vh.tv12.setTextColor(Color.parseColor("#3abfd1"));
-                        vh.tv22.setTextColor(Color.parseColor("#3abfd1"));
+                        vh.tv2.setBackgroundColor(Color.parseColor("#3abfd1"));
+
 
                 }
 
@@ -253,12 +235,16 @@ public class adapterForRoomList extends BaseAdapter{
                             @Override
                             public boolean onLongClick(View v) {
                                 Intent intent;
-                                intent = new Intent(context, electricityUse.class);
-                                intent.setClass(context, electricityUse.class);
-                                intent.putExtra("roomnum",itemList.get(1).getRoomNumber());
+                                intent = new Intent(context, three_ViewPager.class);
+                                intent.setClass(context, three_ViewPager.class);
+                                intent.putExtra("roomnum"    ,itemList.get(1).getRoomNumber());
+                                intent.putExtra("statusname" ,itemList.get(1).getStatusname());
+                                intent.putExtra("usetypename",itemList.get(1).getUsetypename());
+                                intent.putExtra("companyname",itemList.get(1).getCompanyname());
+                                intent.putExtra("companytype",itemList.get(1).getCompanytype());
+                                intent.putExtra("useobjguid" ,itemList.get(1).getUseobjguid());
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
-                                // context.startActivity(intent);
                                 Toast.makeText(context, itemList.get(1).getRoomNumber()+"长按了", Toast.LENGTH_SHORT).show();
                                 return false;
 
@@ -287,30 +273,24 @@ public class adapterForRoomList extends BaseAdapter{
                 vh.tv13.setText(itemList.get(2).getStatusname());
                 switch (itemList.get(2).getStatusname().trim()) {
                     case "自用":
-                        vh.tv3.setTextColor(Color.GREEN);
-                        vh.tv13.setTextColor(Color.GREEN);
-                        vh.tv23.setTextColor(Color.GREEN);
+                        vh.tv3.setBackgroundColor(Color.GREEN);
+
                         break;
                     case "出租":
-                        vh.tv3.setTextColor(Color.GRAY);
-                        vh.tv13.setTextColor(Color.GRAY);
-                        vh.tv23.setTextColor(Color.GRAY);
+                        vh.tv3.setBackgroundColor(Color.GRAY);
+
                         break;
                     case "自住":
-                        vh.tv3.setTextColor(Color.LTGRAY);
-                        vh.tv13.setTextColor(Color.LTGRAY);
-                        vh.tv23.setTextColor(Color.LTGRAY);
+                        vh.tv3.setBackgroundColor(Color.LTGRAY);
+
                         break;
                     case "":
                         vh.tv13.setText("---");
-                        vh.tv3.setTextColor(Color.WHITE);
-                        vh.tv13.setTextColor(Color.WHITE);
-                        vh.tv23.setTextColor(Color.WHITE);
+                        vh.tv3.setBackgroundColor(Color.parseColor("#b34d4d"));
+
                         break;
                     default:
-                        vh.tv3.setTextColor(Color.parseColor("#3abfd1"));
-                        vh.tv13.setTextColor(Color.parseColor("#3abfd1"));
-                        vh.tv23.setTextColor(Color.parseColor("#3abfd1"));
+                        vh.tv3.setBackgroundColor(Color.parseColor("#3abfd1"));
 
                 }
 
@@ -345,7 +325,17 @@ public class adapterForRoomList extends BaseAdapter{
                         new View.OnLongClickListener() {
                             @Override
                             public boolean onLongClick(View v) {
-                                Toast.makeText(context, "长按了", Toast.LENGTH_SHORT).show();
+                                Intent intent;
+                                intent = new Intent(context, three_ViewPager.class);
+                                intent.setClass(context, three_ViewPager.class);
+                                intent.putExtra("roomnum"    ,itemList.get(2).getRoomNumber());
+                                intent.putExtra("statusname" ,itemList.get(2).getStatusname());
+                                intent.putExtra("usetypename",itemList.get(2).getUsetypename());
+                                intent.putExtra("companyname",itemList.get(2).getCompanyname());
+                                intent.putExtra("companytype",itemList.get(2).getCompanytype());
+                                intent.putExtra("useobjguid" ,itemList.get(2).getUseobjguid());
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                context.startActivity(intent);
                                 return false;
                             }
                         }
@@ -368,30 +358,25 @@ public class adapterForRoomList extends BaseAdapter{
                 vh.tv14.setText(itemList.get(3).getStatusname());
                 switch (itemList.get(3).getStatusname().trim()) {
                     case "自用":
-                        vh.tv4.setTextColor(Color.GREEN);
-                        vh.tv14.setTextColor(Color.GREEN);
-                        vh.tv24.setTextColor(Color.GREEN);
+                        vh.tv4.setBackgroundColor(Color.GREEN);
+
                         break;
                     case "出租":
-                        vh.tv4.setTextColor(Color.GRAY);
-                        vh.tv14.setTextColor(Color.GRAY);
-                        vh.tv24.setTextColor(Color.GRAY);
+                        vh.tv4.setBackgroundColor(Color.GRAY);
+
                         break;
                     case "自住":
-                        vh.tv4.setTextColor(Color.LTGRAY);
-                        vh.tv14.setTextColor(Color.LTGRAY);
-                        vh.tv24.setTextColor(Color.LTGRAY);
+                        vh.tv4.setBackgroundColor(Color.LTGRAY);
+
                         break;
                     case "":
                         vh.tv14.setText("---");
-                        vh.tv4.setTextColor(Color.WHITE);
-                        vh.tv14.setTextColor(Color.WHITE);
-                        vh.tv24.setTextColor(Color.WHITE);
+                        vh.tv4.setBackgroundColor(Color.parseColor("#b34d4d"));
+
                         break;
                     default:
-                        vh.tv4.setTextColor(Color.parseColor("#3abfd1"));
-                        vh.tv14.setTextColor(Color.parseColor("#3abfd1"));
-                        vh.tv24.setTextColor(Color.parseColor("#3abfd1"));
+                        vh.tv4.setBackgroundColor(Color.parseColor("#3abfd1"));
+
 
 
                 }
@@ -431,7 +416,17 @@ public class adapterForRoomList extends BaseAdapter{
                         new View.OnLongClickListener() {
                             @Override
                             public boolean onLongClick(View v) {
-                                Toast.makeText(context, "长按了", Toast.LENGTH_SHORT).show();
+                                Intent intent;
+                                intent = new Intent(context, three_ViewPager.class);
+                                intent.setClass(context, three_ViewPager.class);
+                                intent.putExtra("roomnum"    ,itemList.get(3).getRoomNumber());
+                                intent.putExtra("statusname" ,itemList.get(3).getStatusname());
+                                intent.putExtra("usetypename",itemList.get(3).getUsetypename());
+                                intent.putExtra("companyname",itemList.get(3).getCompanyname());
+                                intent.putExtra("companytype",itemList.get(3).getCompanytype());
+                                intent.putExtra("useobjguid" ,itemList.get(3).getUseobjguid());
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                context.startActivity(intent);
                                 return false;
                             }
                         }
