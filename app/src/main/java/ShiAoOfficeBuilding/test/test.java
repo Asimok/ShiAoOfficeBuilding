@@ -4,6 +4,8 @@ import ShiAoOfficeBuilding.Apartment.Apartment.staffActivity;
 import ShiAoOfficeBuilding.Chart.waterUse;
 import ShiAoOfficeBuilding.Chart.electricityUse;
 import  ShiAoOfficeBuilding.RoomList.getRoomList;
+import ShiAoOfficeBuilding.viewPager.three_ViewPager;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,4 +45,9 @@ public class test extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public void viewpager(View view) {
+        Intent intent =new Intent(this, three_ViewPager.class);
+        startActivity(intent);
+    }
 }

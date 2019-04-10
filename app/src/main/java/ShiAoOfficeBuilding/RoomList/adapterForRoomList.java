@@ -323,7 +323,7 @@ public class adapterForRoomList extends BaseAdapter{
                         break;
                     case "库房":
                        resources = context.getResources();
-                       btnDrawable = resources.getDrawable(R.drawable.room_bg_purple);
+                       btnDrawable = resources.getDrawable(R.drawable.room_bg_blue);
                         vh.parent3.setBackgroundDrawable(btnDrawable);
                         break;
                     case "宿舍":

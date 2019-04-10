@@ -31,10 +31,12 @@
             </intent-filter>
         </activity>
         <activity android:name="ShiAoOfficeBuilding.RoomList.getRoomList" />
-        <activity android:name="ShiAoOfficeBuilding.Chart.electricityUse"/>
+        <activity android:name="ShiAoOfficeBuilding.Chart.electricityUse"
+            android:theme="@android:style/Theme.Dialog" />
         <activity android:name="ShiAoOfficeBuilding.Chart.waterUse"/>
         <activity android:name="ShiAoOfficeBuilding.Apartment.Apartment.apartmentActivity"/>
         <activity android:name="ShiAoOfficeBuilding.Apartment.Apartment.staffActivity"/>
+        <activity android:name="ShiAoOfficeBuilding.viewPager.three_ViewPager"/>
     </application>
 
 

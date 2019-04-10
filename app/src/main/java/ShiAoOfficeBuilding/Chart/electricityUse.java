@@ -1,5 +1,6 @@
 package ShiAoOfficeBuilding.Chart;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +9,8 @@ import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.shiaoofficebuilding.R;
@@ -38,7 +41,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class electricityUse extends AppCompatActivity {
+public class electricityUse extends Activity {
     String count;
     String url;
     public List<Float> userinfo;
@@ -53,6 +56,11 @@ public class electricityUse extends AppCompatActivity {
 private returnData getwaterUse;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 去除title
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 去掉Activity上面的状态栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.electricity_layout);
         mList=new ArrayList<>();
         mList2=new ArrayList<>();
