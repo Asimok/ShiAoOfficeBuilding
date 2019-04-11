@@ -4,6 +4,7 @@ import ShiAoOfficeBuilding.Apartment.apartment.staffActivity;
 import ShiAoOfficeBuilding.Chart.waterUse;
 import ShiAoOfficeBuilding.Chart.electricityUse;
 import  ShiAoOfficeBuilding.RoomList.getRoomList;
+import ShiAoOfficeBuilding.TemperaryPersonWarning.Temp_Per_Warn_Activity;
 import ShiAoOfficeBuilding.importancePeople.ImpotantPointActivity;
 import ShiAoOfficeBuilding.tools.datepicker;
 
@@ -38,7 +39,7 @@ public class test extends AppCompatActivity {
     }
 
     public void apartment(View view) {
-        Intent intent =new Intent(this, apartmentActivity.class);
+        Intent intent =new Intent(this, Temp_Per_Warn_Activity.class);
         startActivity(intent);
     }
     public void staff(View view) {

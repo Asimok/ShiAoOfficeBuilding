@@ -99,20 +99,20 @@ public class adapterForRoomList extends BaseAdapter{
             switch (itemList.get(0).getStatusname()) {
                 case "自用":
                     vh.tv1.setBackgroundColor(Color.GREEN);
-
+                    vh.tv1.setBackgroundColor(Color.parseColor("#eb7878"));
                     break;
                 case "出租":
                     vh.tv1.setBackgroundColor(Color.GRAY);
-
+                    vh.tv1.setBackgroundColor(Color.parseColor("#436e4f"));
                     break;
                 case "":
                     vh.tv11.setText("---");
-                    vh.tv1.setBackgroundColor(Color.parseColor("#b34d4d"));
+
 
                     break;
                 case "自住":
                     vh.tv1.setBackgroundColor(Color.LTGRAY);
-
+                    vh.tv1.setBackgroundColor(Color.parseColor("#dd7c1b"));
                     break;
                 default:
                     vh.tv1.setBackgroundColor(Color.parseColor("#3abfd1"));
@@ -179,16 +179,16 @@ public class adapterForRoomList extends BaseAdapter{
                 switch (itemList.get(1).getStatusname().trim()) {
                     case "自用":
                         vh.tv2.setBackgroundColor(Color.GREEN);
-
+                        vh.tv2.setBackgroundColor(Color.parseColor("#eb7878"));
                         break;
                     case "出租":
                         vh.tv2.setBackgroundColor(Color.GRAY);
-
+                        vh.tv2.setBackgroundColor(Color.parseColor("#436e4f"));
 
                         break;
                     case "自住":
                         vh.tv2.setBackgroundColor(Color.LTGRAY);
-
+                        vh.tv2.setBackgroundColor(Color.parseColor("#dd7c1b"));
                         break;
                     case "":
                         vh.tv12.setText("---");
@@ -274,15 +274,15 @@ public class adapterForRoomList extends BaseAdapter{
                 switch (itemList.get(2).getStatusname().trim()) {
                     case "自用":
                         vh.tv3.setBackgroundColor(Color.GREEN);
-
+                        vh.tv3.setBackgroundColor(Color.parseColor("#eb7878"));
                         break;
                     case "出租":
                         vh.tv3.setBackgroundColor(Color.GRAY);
-
+                        vh.tv3.setBackgroundColor(Color.parseColor("#436e4f"));
                         break;
                     case "自住":
                         vh.tv3.setBackgroundColor(Color.LTGRAY);
-
+                        vh.tv3.setBackgroundColor(Color.parseColor("#dd7c1b"));
                         break;
                     case "":
                         vh.tv13.setText("---");
@@ -359,15 +359,15 @@ public class adapterForRoomList extends BaseAdapter{
                 switch (itemList.get(3).getStatusname().trim()) {
                     case "自用":
                         vh.tv4.setBackgroundColor(Color.GREEN);
-
+                        vh.tv4.setBackgroundColor(Color.parseColor("#eb7878"));
                         break;
                     case "出租":
                         vh.tv4.setBackgroundColor(Color.GRAY);
-
+                        vh.tv4.setBackgroundColor(Color.parseColor("#436e4f"));
                         break;
                     case "自住":
                         vh.tv4.setBackgroundColor(Color.LTGRAY);
-
+                        vh.tv4.setBackgroundColor(Color.parseColor("#dd7c1b"));
                         break;
                     case "":
                         vh.tv14.setText("---");

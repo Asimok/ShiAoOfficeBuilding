@@ -36,7 +36,7 @@ tools:context="ShiAoOfficeBuilding.test.test">
         android:layout_margin="@dimen/dp_20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="宿舍人员"
+        android:text="临时预警人员"
         android:textSize="@dimen/sp_15"
         android:onClick="apartment"
         />

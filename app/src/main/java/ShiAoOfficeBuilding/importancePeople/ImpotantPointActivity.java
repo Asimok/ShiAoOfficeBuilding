@@ -111,7 +111,7 @@ public class ImpotantPointActivity extends AppCompatActivity {
         getimportantlist();
     }
     private void getimportantlist() {
-
+        importantPointInfos.clear();
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
                 .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=importantperson&sdate="
@@ -222,6 +222,13 @@ public class ImpotantPointActivity extends AppCompatActivity {
     }
 
     public void search(View view) {
+
+        if(name.getText().toString().equals("")&&idcard.getText().toString().equals(""))
+        {
+
+            Toast.makeText(ImpotantPointActivity.this, "请填写筛选条件！", Toast.LENGTH_SHORT).show();
+        }
+        importantPointInfosForSearch.clear();
         for (int i=0;i<importantPointInfos.size();i++)
         {
             if(importantPointInfos.get(i).getName().equals(name.getText().toString())&&idcard.getText().toString().equals(""))
