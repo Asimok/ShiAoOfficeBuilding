@@ -1,4 +1,4 @@
-package ShiAoOfficeBuilding.Apartment.Apartment;
+package ShiAoOfficeBuilding.Apartment.apartment;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,9 +10,6 @@ import android.widget.TextView;
 import com.example.shiaoofficebuilding.R;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import ShiAoOfficeBuilding.RoomList.roomlistAdapterInfo;
 
 public class ApartmentAdapter extends BaseAdapter {
         public int count;

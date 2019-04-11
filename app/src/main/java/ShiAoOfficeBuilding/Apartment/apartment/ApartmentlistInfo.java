@@ -1,4 +1,4 @@
-package ShiAoOfficeBuilding.Apartment.Apartment;
+package ShiAoOfficeBuilding.Apartment.apartment;
 
 public class ApartmentlistInfo {
     private String idname;

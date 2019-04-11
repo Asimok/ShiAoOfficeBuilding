@@ -1,10 +1,11 @@
 package ShiAoOfficeBuilding.test;
-import ShiAoOfficeBuilding.Apartment.Apartment.apartmentActivity;
-import ShiAoOfficeBuilding.Apartment.Apartment.staffActivity;
+import ShiAoOfficeBuilding.Apartment.apartment.apartmentActivity;
+import ShiAoOfficeBuilding.Apartment.apartment.staffActivity;
 import ShiAoOfficeBuilding.Chart.waterUse;
 import ShiAoOfficeBuilding.Chart.electricityUse;
 import  ShiAoOfficeBuilding.RoomList.getRoomList;
-import ShiAoOfficeBuilding.viewPager.three_ViewPager;
+import ShiAoOfficeBuilding.importancePeople.ImpotantPointActivity;
+import ShiAoOfficeBuilding.tools.datepicker;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -41,13 +42,13 @@ public class test extends AppCompatActivity {
         startActivity(intent);
     }
     public void staff(View view) {
-        Intent intent =new Intent(this, staffActivity.class);
+        Intent intent =new Intent(this, datepicker.class);
         startActivity(intent);
     }
 
 
     public void viewpager(View view) {
-        Intent intent =new Intent(this, three_ViewPager.class);
+        Intent intent =new Intent(this, ImpotantPointActivity.class);
         startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
-package ShiAoOfficeBuilding.Apartment.Apartment;
+package ShiAoOfficeBuilding.Apartment.apartment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -16,16 +17,15 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 import ShiAoOfficeBuilding.RoomList.adapterForRoomList;
-import ShiAoOfficeBuilding.RoomList.getRoomList;
-import ShiAoOfficeBuilding.RoomList.roomlistAdapterInfo;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class apartmentActivity extends AppCompatActivity {
+public class staffActivity extends AppCompatActivity {
     TextView tv;
     private ListView roomlv;
     private ArrayList<ApartmentlistInfo> apartmentlistInfo;
@@ -40,16 +40,18 @@ public class apartmentActivity extends AppCompatActivity {
         setContentView(R.layout.apartment_listview_layout);
         apartmentlistInfo = new ArrayList<ApartmentlistInfo>();
         searchroomlv = findViewById(R.id.apartmentlv);
-        getdormitorylist();//get方法请求获取数据
+        Intent intent=getIntent();
+        String  guid=intent.getStringExtra("useobjguid");
+        getdormitorylist(guid);//get方法请求获取数据
 
 
     }
 
-    private void getdormitorylist() {
+    private void getdormitorylist(String guid) {
 
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=dormperson&guid=20180704155922-a4db323b-b78f-4877-ad81-4947c8a3b1d3")
+                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=workerlist&guid="+guid)
                 .get()
                 .build();
         Call call = okhttpClient.newCall(request);
@@ -60,7 +62,7 @@ public class apartmentActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(apartmentActivity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(staffActivity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
                     }
                 });
                 e.printStackTrace();
@@ -122,7 +124,7 @@ public class apartmentActivity extends AppCompatActivity {
                 mapx.setMobile(mobile);
                 apartmentlistInfo.add(mapx);
                 //数据适配器
-                ApartmentAdapter apartmentAdapter = new ApartmentAdapter(apartmentActivity.this,Integer.parseInt(count),apartmentlistInfo);
+                ApartmentAdapter apartmentAdapter = new ApartmentAdapter(staffActivity.this,Integer.parseInt(count),apartmentlistInfo);
                 searchroomlv.setAdapter(apartmentAdapter);
             }
         });
@@ -139,7 +141,4 @@ public class apartmentActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

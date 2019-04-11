@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center">
+
+      <TextView
+          android:layout_margin="@dimen/dp_5"
+          android:textSize="@dimen/sp_16"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:hint="请选择开始时间"
+          android:enabled="true"
+          android:id="@+id/starttime"
+          android:onClick="startTime"
+          />
+    <TextView
+        android:layout_margin="@dimen/dp_5"
+        android:textSize="@dimen/sp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endtime"
+        android:enabled="true"
+        android:hint="请选择结束时间"
+        android:onClick="endTime"
+       />
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="查询"
+        android:id="@+id/request"
+        android:onClick="res"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_gravity="left">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名:          "
+            android:textSize="@dimen/sp_16"
+            />
+        <EditText
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:hint="请输入姓名"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_gravity="left">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="身份证号: "
+            android:textSize="@dimen/sp_16"
+            />
+        <EditText
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="wrap_content"
+            android:id="@+id/idcard"
+            android:hint="请输入姓名"/>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="查找"
+    android:layout_marginLeft="@dimen/dp_70"
+    android:onClick="search"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/searchroomlv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_6"
+        android:cacheColorHint="#00000000"
+        android:divider="#ffffff"
+        android:dividerHeight="@dimen/dp_6"
+        android:paddingTop="@dimen/dp_15"
+        />
+
+</LinearLayout>

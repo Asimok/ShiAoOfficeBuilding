@@ -7,24 +7,18 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.shiaoofficebuilding.R;
 
 import java.util.ArrayList;
 
-import ShiAoOfficeBuilding.Apartment.Apartment.apartmentActivity;
-import ShiAoOfficeBuilding.Apartment.Apartment.staffActivity;
 import ShiAoOfficeBuilding.Chart.electricityUse;
 import ShiAoOfficeBuilding.Chart.fundation_Activity;
 import ShiAoOfficeBuilding.Chart.waterUse;
-import ShiAoOfficeBuilding.RoomList.getRoomList;
-
 
 
 public class three_ViewPager extends Activity implements View.OnClickListener {

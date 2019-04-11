@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.shiaoofficebuilding.R;
 
-import ShiAoOfficeBuilding.Apartment.Apartment.staffActivity;
+import ShiAoOfficeBuilding.Apartment.apartment.staffActivity;
 
 
 public class fundation_Activity  extends AppCompatActivity {

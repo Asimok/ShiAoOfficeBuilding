@@ -36,13 +36,15 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name="ShiAoOfficeBuilding.Chart.waterUse"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name="ShiAoOfficeBuilding.Apartment.Apartment.apartmentActivity"/>
-        <activity android:name="ShiAoOfficeBuilding.Apartment.Apartment.staffActivity"/>
+        <activity android:name="ShiAoOfficeBuilding.Apartment.apartment.apartmentActivity"/>
+        <activity android:name="ShiAoOfficeBuilding.tools.datepicker"/>
 
         <activity android:name="ShiAoOfficeBuilding.viewPager.three_ViewPager"
             android:theme="@style/Theme.AppCompat.Dialog.Alert"
             />
         <activity android:name="ShiAoOfficeBuilding.Chart.fundation_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="ShiAoOfficeBuilding.importancePeople.ImpotantPointActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
