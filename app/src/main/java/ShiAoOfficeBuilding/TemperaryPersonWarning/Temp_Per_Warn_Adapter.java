@@ -67,4 +67,14 @@ public class Temp_Per_Warn_Adapter extends BaseAdapter {
 
         return view;
     }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
+
+    @Override
+    public void notifyDataSetInvalidated() {
+        super.notifyDataSetInvalidated();
+    }
 }

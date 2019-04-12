@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
+import ShiAoOfficeBuilding.importancePeople.ImportantPointInfo;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -26,9 +27,11 @@ import okhttp3.Response;
 
 public class Temp_Per_Warn_Activity extends AppCompatActivity {
     private ArrayList<Temp_Per_Warning_Info> temp_per_warning_infos;
+    private ArrayList<Temp_Per_Warning_Info> temp_per_warning_infosForSearch;
     private  String count;
 
     private ListView templistview;
+    private EditText room;
 
 
 
@@ -37,7 +40,9 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.templistview);
         temp_per_warning_infos = new ArrayList<Temp_Per_Warning_Info>();
+        temp_per_warning_infosForSearch= new ArrayList<Temp_Per_Warning_Info>();
         templistview = findViewById(R.id.templistview);
+        room = findViewById(R.id.room);
 
 
 
@@ -48,7 +53,7 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
         getimportantlist();
     }
     private void getimportantlist() {
-
+        temp_per_warning_infos.clear();
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
                 .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=visitorwarn")
@@ -132,5 +137,21 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
                 templistview.setAdapter(apartmentAdapter);
             }
         });
+    }
+
+    public void shaixuan(View view) {
+        temp_per_warning_infosForSearch.clear();
+        for (int i = 0; i < temp_per_warning_infos.size(); i++) {
+            Log.v("ee",temp_per_warning_infos.get(i).getRoomnum().substring(7));
+            if (temp_per_warning_infos.get(i).getRoomnum().substring(7).equals(room.getText().toString())) {
+
+                Temp_Per_Warning_Info mapx = new Temp_Per_Warning_Info();
+                mapx.setClocknum(temp_per_warning_infos.get(i).getClocknum());
+                mapx.setRoomnum(temp_per_warning_infos.get(i).getRoomnum());
+                mapx.setRulename(temp_per_warning_infos.get(i).getRulename());
+                mapx.setWarndate(temp_per_warning_infos.get(i).getWarndate());
+                temp_per_warning_infosForSearch.add(mapx);
+            }
+        }
     }
 }
