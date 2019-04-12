@@ -3,8 +3,11 @@ import ShiAoOfficeBuilding.Apartment.apartment.apartmentActivity;
 import ShiAoOfficeBuilding.Apartment.apartment.staffActivity;
 import ShiAoOfficeBuilding.Chart.waterUse;
 import ShiAoOfficeBuilding.Chart.electricityUse;
+import ShiAoOfficeBuilding.Electric_Warning.Elec_Warn_Activity;
 import  ShiAoOfficeBuilding.RoomList.getRoomList;
 import ShiAoOfficeBuilding.TemperaryPersonWarning.Temp_Per_Warn_Activity;
+import ShiAoOfficeBuilding.Usual_Per_Warning.Usual_Per_Warn_Activity;
+import ShiAoOfficeBuilding.Water_Warning.Water_Warn_Activity;
 import ShiAoOfficeBuilding.importancePeople.ImpotantPointActivity;
 import ShiAoOfficeBuilding.tools.datepicker;
 
@@ -29,12 +32,12 @@ public class test extends AppCompatActivity {
     }
 
     public void waterUse(View view) {
-        Intent intent =new Intent(this, waterUse.class);
+        Intent intent =new Intent(this, Water_Warn_Activity.class);
         startActivity(intent);
     }
 
     public void electricityUse(View view) {
-        Intent intent =new Intent(this, electricityUse.class);
+        Intent intent =new Intent(this, Elec_Warn_Activity.class);
         startActivity(intent);
     }
 
@@ -43,7 +46,7 @@ public class test extends AppCompatActivity {
         startActivity(intent);
     }
     public void staff(View view) {
-        Intent intent =new Intent(this, datepicker.class);
+        Intent intent =new Intent(this, Usual_Per_Warn_Activity.class);
         startActivity(intent);
     }
 

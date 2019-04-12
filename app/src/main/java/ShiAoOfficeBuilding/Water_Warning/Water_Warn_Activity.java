@@ -1,4 +1,4 @@
-package ShiAoOfficeBuilding.TemperaryPersonWarning;
+package ShiAoOfficeBuilding.Water_Warning;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,20 +17,20 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-import ShiAoOfficeBuilding.importancePeople.ImportantPointInfo;
+import ShiAoOfficeBuilding.Electric_Warning.Elec_Warn_Adapter;
+import ShiAoOfficeBuilding.Electric_Warning.Elec_Warn_info;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class Temp_Per_Warn_Activity extends AppCompatActivity {
-    private ArrayList<Temp_Per_Warning_Info> temp_per_warning_infos;
-    private ArrayList<Temp_Per_Warning_Info> temp_per_warning_infosForSearch;
+public class Water_Warn_Activity extends AppCompatActivity {
+    private ArrayList<Water_Warn_info> water_warn_infos;
+    private ArrayList<Water_Warn_info> water_warn_infosForSearch;
     private  String count;
 
-    private ListView templistview;
+    private ListView ele_warn_listview;
     private EditText room;
 
 
@@ -38,10 +38,10 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.templistview);
-        temp_per_warning_infos = new ArrayList<Temp_Per_Warning_Info>();
-        temp_per_warning_infosForSearch= new ArrayList<Temp_Per_Warning_Info>();
-        templistview = findViewById(R.id.templistview);
+        setContentView(R.layout.elec_show_listview);
+        water_warn_infos = new ArrayList<Water_Warn_info>();
+        water_warn_infosForSearch= new ArrayList<Water_Warn_info>();
+        ele_warn_listview = findViewById(R.id.ele_warn_listview);
         room = findViewById(R.id.room);
 
 
@@ -49,14 +49,14 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
 
 
     }
-    public void search(View v) {
-        getimportantlist();
-    }
-    private void getimportantlist() {
-        temp_per_warning_infos.clear();
+ public void search(View v) {
+     getWaterWarninglist();
+ }
+    private void getWaterWarninglist() {
+        water_warn_infos.clear();
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=visitorwarn")
+                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=waterwarn")
                 .get()
                 .build();
         Call call = okhttpClient.newCall(request);
@@ -67,7 +67,7 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(Temp_Per_Warn_Activity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Water_Warn_Activity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
                     }
                 });
                 e.printStackTrace();
@@ -95,18 +95,20 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
                         int pos =i;
                         //遍历获取数据
                         JSONObject jsonObj2 = jsonArray.getJSONObject(i);
-                        Log.d("aa","0");
-                        String rulename = jsonObj2.getString("rulename");
-                        Log.d("aa","1");
+
+                        String year = jsonObj2.getString("year");
+
                         String roomnum = jsonObj2.getString("roomnum");
-                        Log.d("aa","2");
-                        String clocknum = jsonObj2.getString("clocknum");
-                        Log.d("aa","3");
+
+                        String month = jsonObj2.getString("month");
+
                         String warndate = jsonObj2.getString("warndate");
-                        Log.d("aa","4");
+
+                        String usenum = jsonObj2.getString("usenum");
+
 
                         Log.d("aa","5");
-                        showRoomlistResult(rulename,roomnum,clocknum,warndate);
+                        showRoomlistResult(roomnum,year,month,warndate,usenum);
 
                     }
                 } catch (JSONException e) {
@@ -117,43 +119,42 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
         });
     }
 
-    public void showRoomlistResult(final String rulename,final String roomnum,final String clocknum,final  String warndate )
+    public void showRoomlistResult(final String roomnum,final String year,final String month,final  String warndate ,final  String usenum)
     //封装遍历的数据
     {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
 
-                Temp_Per_Warning_Info mapx = new Temp_Per_Warning_Info();
-                mapx.setClocknum(clocknum);
-                mapx.setRulename(rulename);
+                Water_Warn_info mapx = new Water_Warn_info();
                 mapx.setRoomnum(roomnum);
+                mapx.setYear(year);
+                mapx.setMonth(month);
                 mapx.setWarndate(warndate);
+                mapx.setUsenum(usenum);
 
-                temp_per_warning_infos.add(mapx);
+                water_warn_infos.add(mapx);
 
                 //数据适配器
-                Temp_Per_Warn_Adapter apartmentAdapter = new Temp_Per_Warn_Adapter(Temp_Per_Warn_Activity.this,Integer.parseInt(count),temp_per_warning_infos);
-                templistview.setAdapter(apartmentAdapter);
+                Water_Warn_Adapter water_warn_adapter = new Water_Warn_Adapter(Water_Warn_Activity.this,Integer.parseInt(count),water_warn_infos);
+                ele_warn_listview.setAdapter(water_warn_adapter);
             }
         });
     }
 
     public void shaixuan(View view) {
-        temp_per_warning_infosForSearch.clear();
-        for (int i = 0; i < temp_per_warning_infos.size(); i++) {
-            Log.v("ee",temp_per_warning_infos.get(i).getRoomnum().substring(6));
-            if (temp_per_warning_infos.get(i).getRoomnum().substring(6).equals("_"+room.getText().toString())) {
+        water_warn_infosForSearch.clear();
+        for (int i = 0; i < water_warn_infos.size(); i++) {
 
-                Temp_Per_Warning_Info mapx = new Temp_Per_Warning_Info();
-                mapx.setClocknum(temp_per_warning_infos.get(i).getClocknum());
-                mapx.setRoomnum(temp_per_warning_infos.get(i).getRoomnum());
-                mapx.setRulename(temp_per_warning_infos.get(i).getRulename());
-                mapx.setWarndate(temp_per_warning_infos.get(i).getWarndate());
-                temp_per_warning_infosForSearch.add(mapx);
-                Temp_Per_Warn_Adapter apartmentAdapter = new Temp_Per_Warn_Adapter(Temp_Per_Warn_Activity.this,
-                        Integer.parseInt(count),temp_per_warning_infosForSearch);
-                templistview.setAdapter(apartmentAdapter);
+            if (water_warn_infos.get(i).getRoomnum().equals(room.getText().toString())) {
+
+                Water_Warn_info mapx = new Water_Warn_info();
+                mapx.setRoomnum(water_warn_infos.get(i).getRoomnum());
+                mapx.setYear(water_warn_infos.get(i).getYear());
+                mapx.setMonth(water_warn_infos.get(i).getMonth());
+                mapx.setWarndate(water_warn_infos.get(i).getWarndate());
+                mapx.setUsenum(water_warn_infos.get(i).getUsenum());
+                water_warn_infosForSearch.add(mapx);
             }
         }
     }

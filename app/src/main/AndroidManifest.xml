@@ -50,6 +50,23 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name="ShiAoOfficeBuilding.TemperaryPersonWarning.Temp_Per_Warn_Activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="ShiAoOfficeBuilding.Electric_Warning.Elec_Warn_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="ShiAoOfficeBuilding.Water_Warning.Water_Warn_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="ShiAoOfficeBuilding.Usual_Per_Warning.Usual_Per_Warn_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <!-- 配置Service组件,同时配置一个action -->
+        <service
+            android:name="ShiAoOfficeBuilding.Service.TestServiceTwo"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="ShiAoOfficeBuilding.Service.TEST_SERVICE_TWO"/>
+            </intent-filter>
+        </service>
+
+
     </application>
 
 

@@ -1,5 +1,11 @@
 package ShiAoOfficeBuilding.RoomList;
 
+import android.app.Service;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
+import ShiAoOfficeBuilding.Service.TestServiceTwo;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -37,6 +44,24 @@ public class getRoomList extends AppCompatActivity implements AdapterView.OnItem
     Spinner one,two,three,four;
     int time=0;
     private String showfloor="02";
+
+    TestServiceTwo.MyBinder myBinder;
+
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+
+        //Activity与Service连接成功时回调该方法
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.e("Service Connected", "success!");
+            myBinder = (TestServiceTwo.MyBinder) service;
+        }
+
+        //Activity与Service断开连接时回调该方法
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Log.e("Service Disconnected", "error!");
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +83,15 @@ public class getRoomList extends AppCompatActivity implements AdapterView.OnItem
         three.setOnItemSelectedListener(this);
         four.setOnItemSelectedListener(this);
 
-
+        Intent intent = new Intent(this,TestServiceTwo.class);
+       // intent.setAction("ShiAoOfficeBuilding.Service.TestServiceTwo");
+        //Android 5.0之后，隐式调用是除了设置setAction()外，还需要设置setPackage();
+        //intent.setPackage("ShiAoOfficeBuilding.Service");
+       // bindService(intent, serviceConnection, Service.BIND_AUTO_CREATE);
+        startService(intent);
         getRoomlist();//get方法请求获取数据
 
         getBulidlist();
-
     }
 
     private void getRoomlist() {
@@ -357,5 +386,7 @@ public  String judgefloor(String floor)
 
     return numfloor;
 }
+
+
 
 }

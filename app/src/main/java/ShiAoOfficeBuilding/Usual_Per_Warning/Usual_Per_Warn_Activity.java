@@ -1,4 +1,4 @@
-package ShiAoOfficeBuilding.TemperaryPersonWarning;
+package ShiAoOfficeBuilding.Usual_Per_Warning;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,17 +17,17 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-import ShiAoOfficeBuilding.importancePeople.ImportantPointInfo;
+import ShiAoOfficeBuilding.TemperaryPersonWarning.Temp_Per_Warn_Adapter;
+import ShiAoOfficeBuilding.TemperaryPersonWarning.Temp_Per_Warning_Info;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class Temp_Per_Warn_Activity extends AppCompatActivity {
-    private ArrayList<Temp_Per_Warning_Info> temp_per_warning_infos;
-    private ArrayList<Temp_Per_Warning_Info> temp_per_warning_infosForSearch;
+public class Usual_Per_Warn_Activity extends AppCompatActivity {
+    private ArrayList<Usual_Per_Warning_Info> usual_per_warning_infos;
+    private ArrayList<Usual_Per_Warning_Info> usual_per_warning_infosForSearch;
     private  String count;
 
     private ListView templistview;
@@ -39,24 +39,22 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.templistview);
-        temp_per_warning_infos = new ArrayList<Temp_Per_Warning_Info>();
-        temp_per_warning_infosForSearch= new ArrayList<Temp_Per_Warning_Info>();
+        usual_per_warning_infos = new ArrayList<Usual_Per_Warning_Info>();
+        usual_per_warning_infosForSearch= new ArrayList<Usual_Per_Warning_Info>();
         templistview = findViewById(R.id.templistview);
         room = findViewById(R.id.room);
 
-
-
-
-
-    }
-    public void search(View v) {
         getimportantlist();
+
+
+
     }
+
     private void getimportantlist() {
-        temp_per_warning_infos.clear();
+        usual_per_warning_infos.clear();
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=visitorwarn")
+                .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=fixedwarn")
                 .get()
                 .build();
         Call call = okhttpClient.newCall(request);
@@ -67,7 +65,7 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(Temp_Per_Warn_Activity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Usual_Per_Warn_Activity.this, "连接服务器失败！", Toast.LENGTH_SHORT).show();
                     }
                 });
                 e.printStackTrace();
@@ -124,36 +122,33 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Temp_Per_Warning_Info mapx = new Temp_Per_Warning_Info();
+                Usual_Per_Warning_Info mapx = new Usual_Per_Warning_Info();
                 mapx.setClocknum(clocknum);
                 mapx.setRulename(rulename);
                 mapx.setRoomnum(roomnum);
                 mapx.setWarndate(warndate);
 
-                temp_per_warning_infos.add(mapx);
+                usual_per_warning_infos.add(mapx);
 
                 //数据适配器
-                Temp_Per_Warn_Adapter apartmentAdapter = new Temp_Per_Warn_Adapter(Temp_Per_Warn_Activity.this,Integer.parseInt(count),temp_per_warning_infos);
+                Usual_Per_Warn_Adapter apartmentAdapter = new Usual_Per_Warn_Adapter(Usual_Per_Warn_Activity.this,Integer.parseInt(count),usual_per_warning_infos);
                 templistview.setAdapter(apartmentAdapter);
             }
         });
     }
 
     public void shaixuan(View view) {
-        temp_per_warning_infosForSearch.clear();
-        for (int i = 0; i < temp_per_warning_infos.size(); i++) {
-            Log.v("ee",temp_per_warning_infos.get(i).getRoomnum().substring(6));
-            if (temp_per_warning_infos.get(i).getRoomnum().substring(6).equals("_"+room.getText().toString())) {
+        usual_per_warning_infosForSearch.clear();
+        for (int i = 0; i < usual_per_warning_infos.size(); i++) {
 
-                Temp_Per_Warning_Info mapx = new Temp_Per_Warning_Info();
-                mapx.setClocknum(temp_per_warning_infos.get(i).getClocknum());
-                mapx.setRoomnum(temp_per_warning_infos.get(i).getRoomnum());
-                mapx.setRulename(temp_per_warning_infos.get(i).getRulename());
-                mapx.setWarndate(temp_per_warning_infos.get(i).getWarndate());
-                temp_per_warning_infosForSearch.add(mapx);
-                Temp_Per_Warn_Adapter apartmentAdapter = new Temp_Per_Warn_Adapter(Temp_Per_Warn_Activity.this,
-                        Integer.parseInt(count),temp_per_warning_infosForSearch);
-                templistview.setAdapter(apartmentAdapter);
+            if (usual_per_warning_infos.get(i).getRoomnum().equals(room.getText().toString())) {
+
+                Usual_Per_Warning_Info mapx = new Usual_Per_Warning_Info();
+                mapx.setClocknum(usual_per_warning_infos.get(i).getClocknum());
+                mapx.setRoomnum(usual_per_warning_infos.get(i).getRoomnum());
+                mapx.setRulename(usual_per_warning_infos.get(i).getRulename());
+                mapx.setWarndate(usual_per_warning_infos.get(i).getWarndate());
+                usual_per_warning_infosForSearch.add(mapx);
             }
         }
     }
