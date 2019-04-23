@@ -149,6 +149,8 @@ public class Usual_Per_Warn_Activity extends AppCompatActivity {
                 mapx.setRulename(usual_per_warning_infos.get(i).getRulename());
                 mapx.setWarndate(usual_per_warning_infos.get(i).getWarndate());
                 usual_per_warning_infosForSearch.add(mapx);
+                Usual_Per_Warn_Adapter apartmentAdapter = new Usual_Per_Warn_Adapter(Usual_Per_Warn_Activity.this,Integer.parseInt(count),usual_per_warning_infosForSearch);
+                templistview.setAdapter(apartmentAdapter);
             }
         }
     }
