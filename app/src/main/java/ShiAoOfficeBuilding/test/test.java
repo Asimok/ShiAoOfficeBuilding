@@ -1,15 +1,11 @@
 package ShiAoOfficeBuilding.test;
-import ShiAoOfficeBuilding.Apartment.apartment.apartmentActivity;
-import ShiAoOfficeBuilding.Apartment.apartment.staffActivity;
-import ShiAoOfficeBuilding.Chart.waterUse;
-import ShiAoOfficeBuilding.Chart.electricityUse;
 import ShiAoOfficeBuilding.Electric_Warning.Elec_Warn_Activity;
-import  ShiAoOfficeBuilding.RoomList.getRoomList;
 import ShiAoOfficeBuilding.TemperaryPersonWarning.Temp_Per_Warn_Activity;
+import ShiAoOfficeBuilding.Usual_Per_Clock_Data.Usual_Per_Clock_Data_Activity;
 import ShiAoOfficeBuilding.Usual_Per_Warning.Usual_Per_Warn_Activity;
 import ShiAoOfficeBuilding.Water_Warning.Water_Warn_Activity;
 import ShiAoOfficeBuilding.importancePeople.ImpotantPointActivity;
-import ShiAoOfficeBuilding.tools.datepicker;
+import ShiAoOfficeBuilding.Temp_Per_Clock_Data.Temp_Per_Clock_Data_Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +23,7 @@ public class test extends AppCompatActivity {
     }
 
     public void roomlist(View view) {
-        Intent intent =new Intent(this,getRoomList.class);
+        Intent intent =new Intent(this, Temp_Per_Clock_Data_Activity.class);
         startActivity(intent);
     }
 
@@ -53,6 +49,12 @@ public class test extends AppCompatActivity {
 
     public void viewpager(View view) {
         Intent intent =new Intent(this, ImpotantPointActivity.class);
+        startActivity(intent);
+    }
+
+    public void longpeople(View view) {
+
+        Intent intent =new Intent(this, Usual_Per_Clock_Data_Activity.class);
         startActivity(intent);
     }
 }

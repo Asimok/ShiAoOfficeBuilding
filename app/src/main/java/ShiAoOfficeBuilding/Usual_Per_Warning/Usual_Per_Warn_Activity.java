@@ -49,7 +49,9 @@ public class Usual_Per_Warn_Activity extends AppCompatActivity {
 
 
     }
-
+    public void search(View v) {
+        getimportantlist();
+    }
     private void getimportantlist() {
         usual_per_warning_infos.clear();
         OkHttpClient okhttpClient = new OkHttpClient();

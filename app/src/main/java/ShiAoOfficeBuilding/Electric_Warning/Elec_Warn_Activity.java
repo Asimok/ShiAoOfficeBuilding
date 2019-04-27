@@ -154,6 +154,9 @@ public class Elec_Warn_Activity extends AppCompatActivity {
                 mapx.setWarndate(elec_warn_infos.get(i).getWarndate());
                 mapx.setUsenum(elec_warn_infos.get(i).getUsenum());
                 elec_warn_infosForSearch.add(mapx);
+                //数据适配器
+                Elec_Warn_Adapter elec_warn_adapter = new Elec_Warn_Adapter(Elec_Warn_Activity.this,Integer.parseInt(count),elec_warn_infosForSearch);
+                ele_warn_listview.setAdapter(elec_warn_adapter);
             }
         }
     }

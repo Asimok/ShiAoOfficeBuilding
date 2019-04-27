@@ -6,29 +6,29 @@
 
     android:orientation="vertical">
     <LinearLayout
-        android:weightSum="5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="5"
         android:orientation="horizontal">
         <TextView
-            android:layout_margin="10dp"
-           android:layout_weight="4"
-           android:gravity="center"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="4"
+            android:gravity="center"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="请选择日期"
-            android:id="@+id/searchdate"
+            android:id="@+id/usual_searchdate"
             />
         <Button
-android:layout_margin="@dimen/dp_10"
+            android:layout_margin="@dimen/dp_10"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:text="查询"
             android:background="#8BC34A"
-            android:onClick="searchTemp"/>
+            android:onClick="searchUsual"/>
     </LinearLayout>
     <ListView
-        android:id="@+id/temp_per_clo_data_lv"
+        android:id="@+id/usual_per_clo_data_lv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/dp_6"

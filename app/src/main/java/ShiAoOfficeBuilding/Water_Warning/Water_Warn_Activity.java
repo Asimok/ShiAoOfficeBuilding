@@ -44,8 +44,7 @@ public class Water_Warn_Activity extends AppCompatActivity {
         ele_warn_listview = findViewById(R.id.ele_warn_listview);
         room = findViewById(R.id.room);
 
-
-
+        getWaterWarninglist();
 
 
     }
@@ -155,6 +154,11 @@ public class Water_Warn_Activity extends AppCompatActivity {
                 mapx.setWarndate(water_warn_infos.get(i).getWarndate());
                 mapx.setUsenum(water_warn_infos.get(i).getUsenum());
                 water_warn_infosForSearch.add(mapx);
+                //数据适配器
+                Water_Warn_Adapter water_warn_adapter = new Water_Warn_Adapter(Water_Warn_Activity.this
+                        ,Integer.parseInt(count),
+                        water_warn_infosForSearch);
+                ele_warn_listview.setAdapter(water_warn_adapter);
             }
         }
     }

@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name="ShiAoOfficeBuilding.test.test"
+        <activity android:name="ShiAoOfficeBuilding.tab.tab"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,7 +56,15 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name="ShiAoOfficeBuilding.Usual_Per_Warning.Usual_Per_Warn_Activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-
+<activity android:name="ShiAoOfficeBuilding.test.test"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    />
+        <activity android:name="ShiAoOfficeBuilding.Temp_Per_Clock_Data.Temp_Per_Clock_Data_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+        <activity android:name="ShiAoOfficeBuilding.Usual_Per_Clock_Data.Usual_Per_Clock_Data_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <!-- 配置Service组件,同时配置一个action -->
         <service
             android:name="ShiAoOfficeBuilding.Service.TestServiceTwo"

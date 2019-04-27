@@ -44,7 +44,7 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
         templistview = findViewById(R.id.templistview);
         room = findViewById(R.id.room);
 
-
+        getimportantlist();
 
 
 

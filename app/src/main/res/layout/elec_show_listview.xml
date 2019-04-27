@@ -10,7 +10,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:layout_width="wrap_content"
+            android:background="#8BC34A"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="查询"
             android:onClick="search"/>
@@ -34,6 +36,7 @@
             android:id="@+id/room"
             android:hint="请输入房间号"/>
         <Button
+            android:background="#00BCD4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="筛选"

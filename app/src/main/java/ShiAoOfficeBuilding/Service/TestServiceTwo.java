@@ -17,8 +17,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import ShiAoOfficeBuilding.tools.MyNotification;
+import ShiAoOfficeBuilding.tools.dateUtils;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -64,11 +66,8 @@ public class TestServiceTwo extends Service {
                         e.printStackTrace();
                     }
                     getimportantlist();
-                    MyNotification notify = new MyNotification(getApplication());
-                    notify.MyNotification("智能写字楼", "犯罪嫌疑人对比成功",
-                            R.drawable.room_bg_purple, "badpeople", "嫌疑人", 1, "嫌疑人");
-                        count ++;
-                    //Log.d("onCreate", ""+count);
+
+
                 }
             }
         }).start();
@@ -124,7 +123,7 @@ public class TestServiceTwo extends Service {
                 String res = response.body().string();//获取到传过来的字符串
                 try {
                     JSONObject jsonObj = new JSONObject(res);
-                    Log.d("aa",res);
+                    Log.d("gg",res);
                     //获取结果
                     String result = jsonObj.getString("result");
                     Log.d("aa", result);
@@ -145,8 +144,11 @@ public class TestServiceTwo extends Service {
                         String name = jsonObj2.getString("name");
                         String clocktime = jsonObj2.getString("clocktime");
                         String checktime = jsonObj2.getString("checktime");
-                       // showRoomlistResult(rulename,roomnum,clocknum,warndate);
+
                         Log.d("aa", buildname+"  "+name);
+
+
+                        showpeople(buildname,name,checktype,clocktime,i);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -154,5 +156,28 @@ public class TestServiceTwo extends Service {
 
             }
         });
+    }
+
+    private void showpeople(String buildname,String name, String checktype,String clocktime,int id) {
+        boolean next1=false;
+        boolean next2=false;
+        try {
+            String nowdate= dateUtils.getdetailYear();//当前时间
+            String getday=clocktime;//获取到的时间
+            String onehourBefor=dateUtils.subhour(nowdate,-1);//一小时前的时间
+            Log.d("ee","时间  "+"nowdate   "+nowdate+"  getday  "+getday+"  onehourBefor   "+onehourBefor);
+             next1=dateUtils.comparedate(getday,nowdate);//获取到的时间在当前时间之前
+             next2=dateUtils.comparedate(onehourBefor,getday);//获取到的时间在当前时间按前一小时之后
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+       if(next1&&next2) {
+           //提示一小时之内的
+           MyNotification notify = new MyNotification(getApplication());
+           notify.MyNotification(buildname, name + "  " + checktype + "  " + clocktime,
+                   R.drawable.function3, "badpeople", "嫌疑人", id, "嫌疑人");
+
+       }
+
     }
 }
