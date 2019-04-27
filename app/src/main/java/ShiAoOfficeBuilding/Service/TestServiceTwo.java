@@ -59,7 +59,7 @@ public class TestServiceTwo extends Service {
                 while (!quit) {
 
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(60000);//一分钟
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

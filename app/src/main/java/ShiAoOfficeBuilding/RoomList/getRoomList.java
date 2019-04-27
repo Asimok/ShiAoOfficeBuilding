@@ -83,7 +83,7 @@ public class getRoomList extends AppCompatActivity implements AdapterView.OnItem
         three.setOnItemSelectedListener(this);
         four.setOnItemSelectedListener(this);
 
-        Intent intent = new Intent(this,TestServiceTwo.class);
+        Intent intent = new Intent(this,TestServiceTwo.class);//开启服务
        // intent.setAction("ShiAoOfficeBuilding.Service.TestServiceTwo");
         //Android 5.0之后，隐式调用是除了设置setAction()外，还需要设置setPackage();
         //intent.setPackage("ShiAoOfficeBuilding.Service");
