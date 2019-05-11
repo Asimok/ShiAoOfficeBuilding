@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="50dp"
@@ -23,9 +23,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:text="临时访客打卡数据"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textColor="#572121"
             android:background="#ffffffff"
             android:onClick="roomlist"
@@ -33,7 +33,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="50dp"
@@ -46,8 +46,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="25sp"
+            android:layout_height="70dp"
+            android:textSize="20sp"
             android:textColor="#656f39"
             android:text="常驻访客打卡数据"
             android:background="#ffffffff"
@@ -56,7 +56,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="50dp"
@@ -69,8 +69,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="25sp"
+            android:layout_height="70dp"
+            android:textSize="20sp"
             android:background="#ffff"
             android:text="用水预警"
             android:textColor="#00334e"
@@ -79,7 +79,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="45dp"
@@ -92,8 +92,8 @@
             android:layout_marginLeft="23dp"
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="25sp"
+            android:layout_height="70dp"
+            android:textSize="20sp"
             android:background="#ffff"
             android:textColor="#e88a1a"
             android:text="用电预警"
@@ -102,7 +102,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="50dp"
@@ -115,8 +115,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="25sp"
+            android:layout_height="70dp"
+            android:textSize="20sp"
             android:background="#ffff"
             android:textColor="#5a3921"
             android:text="临时预警人员"
@@ -125,7 +125,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="40dp"
@@ -138,8 +138,8 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="25sp"
+            android:layout_height="70dp"
+            android:textSize="20sp"
             android:background="#ffff"
             android:textColor="#62374e"
             android:text="常驻访客预警"
@@ -148,7 +148,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="45dp"
@@ -161,8 +161,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="25sp"
+            android:layout_height="70dp"
+            android:textSize="20sp"
             android:textColor="#F70303"
             android:background="#ffffffff"
             android:text="重点人员"
