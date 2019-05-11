@@ -81,6 +81,7 @@ public class Temp_Per_Clock_Data_Activity extends AppCompatActivity {
     public void searchTemp(View view) {
         Log.d("aa","1");
         getTempPersonData();
+
     }
     protected void showDatePickDlgForTime() {
         Calendar calendar = Calendar.getInstance();
@@ -102,7 +103,7 @@ public class Temp_Per_Clock_Data_Activity extends AppCompatActivity {
         temp_Per_Clock_Data_Info.clear();
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
-                //count在这里更改
+
                 .url("http://47.93.103.150/OfficeWebApp/Office/service/GetJsonDataX.ashx?opera=visitorlog&date="+searchDate.getText()+"&index=1&count=100000")
                 .get()
                 .build();
@@ -138,6 +139,7 @@ public class Temp_Per_Clock_Data_Activity extends AppCompatActivity {
                     String roomlist = jsonObj.getString("data");
                     //转换成JSON数组
                     JSONArray jsonArray = new JSONArray(roomlist);
+                   
                     for (int i = 0; i < Integer.parseInt(count); i++) {
                         int pos =i;
                         //遍历获取数据
@@ -162,6 +164,7 @@ public class Temp_Per_Clock_Data_Activity extends AppCompatActivity {
                         showRoomlistResult(personname,personidnum,sexname,personage,personaddr,clocktime,deptname);
 
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -173,6 +176,9 @@ public class Temp_Per_Clock_Data_Activity extends AppCompatActivity {
     public void showRoomlistResult(final String personname,final String personidnum,final String sexname,final  String personage ,final  String personaddr,final  String clocktime,final  String deptname)
     //封装遍历的数据
     {
+
+
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -209,6 +215,8 @@ public class Temp_Per_Clock_Data_Activity extends AppCompatActivity {
                 elec_warn_infosForSearch.add(mapx);
             }
         }*/
+
+
     }
 
    /* public void search(View view) {

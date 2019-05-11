@@ -53,6 +53,7 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
         getimportantlist();
     }
     private void getimportantlist() {
+
         temp_per_warning_infos.clear();
         OkHttpClient okhttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
@@ -77,7 +78,9 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
 
                 String res = response.body().string();//获取到传过来的字符串
+
                 try {
+
                     JSONObject jsonObj = new JSONObject(res);
                     Log.d("aa",res);
                     //获取结果
@@ -120,6 +123,8 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
     public void showRoomlistResult(final String rulename,final String roomnum,final String clocknum,final  String warndate )
     //封装遍历的数据
     {
+        if(count.equals("0"))
+            Toast.makeText(this, "没有获取到数据！", Toast.LENGTH_SHORT).show();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -140,6 +145,13 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
     }
 
     public void shaixuan(View view) {
+
+        if(temp_per_warning_infos.isEmpty())
+        {
+            Toast.makeText(this,"请查询之后筛选",Toast.LENGTH_SHORT).show();
+        }
+        else{
+
         temp_per_warning_infosForSearch.clear();
         for (int i = 0; i < temp_per_warning_infos.size(); i++) {
             Log.v("ee",temp_per_warning_infos.get(i).getRoomnum().substring(6));
@@ -156,5 +168,5 @@ public class Temp_Per_Warn_Activity extends AppCompatActivity {
                 templistview.setAdapter(apartmentAdapter);
             }
         }
-    }
+    }}
 }
