@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_105"
-    android:layout_marginTop="@dimen/dp_18"
+    android:layout_height="105dp"
+    android:layout_marginTop="18dp"
     android:background="#00000000"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp_110"
-        android:layout_marginLeft="@dimen/dp_10"
-        android:layout_marginRight="@dimen/dp_10"
+        android:layout_height="110dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/biankuangda"
         android:cacheColorHint="#00000000"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/dp_15">
+        android:paddingLeft="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_9"
-            android:layout_marginTop="@dimen/dp_16"
-            android:layout_marginRight="@dimen/dp_7">
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="7dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="房间号："
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/elec_roomnum"
-                android:layout_width="@dimen/dp_100"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:background="#00000000"
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_0"
+                android:layout_marginLeft="0dp"
                 android:text="用电量："
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/elec_usenum"
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:background="#00000000"
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
 
         </LinearLayout>
@@ -60,32 +60,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_9"
-
-            android:layout_marginRight="@dimen/dp_7">
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="7dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="年    份："
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/elec_year"
-                android:layout_width="@dimen/dp_100"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:background="#00000000"
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_0"
+                android:layout_marginLeft="0dp"
                 android:text="月     份："
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/elec_month"
@@ -93,16 +93,16 @@
                 android:layout_height="match_parent"
                 android:background="#00000000"
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_9"
-            android:layout_marginTop="@dimen/dp_5"
-            android:layout_marginRight="@dimen/dp_7"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="7dp"
             android:orientation="horizontal">
 
             <TextView
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:text="预警日期："
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="18dp" />
 
 
             <TextView
@@ -119,14 +119,14 @@
                 android:layout_height="wrap_content"
 
                 android:textColor="#f6f7f8"
-                android:textSize="@dimen/sp_18"
+                android:textSize="18dp"
 
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dp_7">
+                android:layout_marginRight="7dp">
 
 
 

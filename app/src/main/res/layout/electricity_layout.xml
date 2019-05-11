@@ -13,14 +13,14 @@
 
     <LinearLayout
         android:id="@+id/linear"
-        android:layout_marginBottom="@dimen/dp_70"
+        android:layout_marginBottom="70dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/year"
-            android:layout_width="@dimen/dp_100"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:hint="输入年份"
             android:textColorHint="#000000"
@@ -30,8 +30,10 @@
             android:id="@+id/getinfo"
             android:layout_toRightOf="@id/year"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="获取"
+            android:background="#8BC34A"
+            android:layout_marginLeft="10dp"
             android:onClick="getinfo"/>
     </LinearLayout>
 </RelativeLayout>

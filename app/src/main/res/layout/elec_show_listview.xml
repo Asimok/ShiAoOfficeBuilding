@@ -6,53 +6,54 @@
     android:orientation="vertical"
     >
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:background="#8BC34A"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="查询"
-            android:onClick="search"/>
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="left">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="房间号: "
-            android:textSize="@dimen/sp_16"
+            android:textColor="#000"
+            android:textSize="18dp"
             />
         <EditText
-            android:layout_width="@dimen/dp_120"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/room"
+            android:layout_marginLeft="10dp"
+            android:background="#fff"
             android:hint="请输入房间号"/>
         <Button
-            android:background="#00BCD4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="筛选"
-            android:layout_marginLeft="@dimen/dp_70"
+            android:background="@drawable/shaixuan"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
             android:onClick="shaixuan"/>
     </LinearLayout>
-
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Button
+                android:background="#8BC34A"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="查询"
+                android:onClick="search"/>
+    </LinearLayout>
     <ListView
         android:id="@+id/ele_warn_listview"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginTop="6dp"
         android:cacheColorHint="#00000000"
         android:divider="#ffffff"
-        android:dividerHeight="@dimen/dp_6"
-        android:paddingTop="@dimen/dp_15"
+        android:dividerHeight="6dp"
+        android:paddingTop="15dp"
         />
 
 </LinearLayout>

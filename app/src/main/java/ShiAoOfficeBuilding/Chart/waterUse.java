@@ -68,13 +68,13 @@ public class waterUse extends AppCompatActivity {
         thisyear=dateUtils.getYear();
         Intent intent=getIntent();
         roomnum=intent.getStringExtra("roomnum");
-        Log.v("ee","水 "+roomnum);
+        Log.v("ee","water "+roomnum);
 
         try {
 
             thisyear = dateUtils.getYear();
             GetUrl(roomnum,thisyear);
-            Log.d("ee","水 的  roomnum"+roomnum+"  thisyear "+thisyear);
+            Log.d("ee","water 的  roomnum"+roomnum+"  thisyear "+thisyear);
         } catch (ParseException e) {
             e.printStackTrace();
         }

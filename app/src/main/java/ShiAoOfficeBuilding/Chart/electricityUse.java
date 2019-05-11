@@ -74,11 +74,11 @@ private returnData getwaterUse;
         thisyear=dateUtils.getYear();
         Intent intent=getIntent();
         roomnum=intent.getStringExtra("roomnum");
-        Log.v("ee","电 "+roomnum);
+        Log.v("ee","electric "+roomnum);
         try {
             thisyear = dateUtils.getYear();
             GetUrl(roomnum,thisyear);
-            Log.d("ee","电 的  roomnum"+roomnum+"  thisyear "+thisyear);
+            Log.d("ee","electric 的  roomnum"+roomnum+"  thisyear "+thisyear);
         } catch (ParseException e) {
             e.printStackTrace();
         }

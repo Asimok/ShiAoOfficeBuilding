@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants"
@@ -10,13 +9,13 @@
         android:id="@+id/apartmentlv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginTop="6dp"
         android:cacheColorHint="#00000000"
         android:divider="#ffffff"
-        android:dividerHeight="@dimen/dp_6"
+        android:dividerHeight="6dp"
         android:fadeScrollbars="true"
         android:fadingEdge="none"
-        android:paddingTop="@dimen/dp_15"
+        android:paddingTop="15dp"
         android:transcriptMode="alwaysScroll"
 
         />

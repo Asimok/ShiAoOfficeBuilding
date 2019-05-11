@@ -40,7 +40,7 @@ public class fundation_Activity  extends AppCompatActivity {
          useobjguid   =intent.getStringExtra("useobjguid"   );
         companyname1.setText(companyname);
         companytype1.setText(companytype);
-        staff1.setText("我是图片");
+       // staff1.setText("我是图片");
 
         Log.d("ff", room + statusname + usetypename + companyname + companytype + useobjguid);
 

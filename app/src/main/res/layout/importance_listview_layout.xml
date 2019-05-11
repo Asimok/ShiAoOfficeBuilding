@@ -10,21 +10,32 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:layout_marginTop="10dp"
     android:layout_gravity="center">
 
       <TextView
-          android:layout_margin="@dimen/dp_5"
-          android:textSize="@dimen/sp_16"
+          android:layout_margin="5dp"
+          android:textSize="16sp"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:hint="请选择开始时间"
           android:enabled="true"
+          android:layout_marginRight="10dp"
           android:id="@+id/starttime"
           android:onClick="startTime"
           />
     <TextView
-        android:layout_margin="@dimen/dp_5"
-        android:textSize="@dimen/sp_16"
+            android:layout_margin="5dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:hint="-"
+            android:onClick="endTime"
+    />
+    <TextView
+        android:layout_margin="5dp"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/endtime"
@@ -35,66 +46,100 @@
     <Button
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="30dp"
         android:text="查询"
+        android:layout_marginLeft="15dp"
         android:background="#8BC34A"
         android:id="@+id/request"
         android:onClick="res"/>
 </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_gravity="left">
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ff4081"
+        />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+    <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+       <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_marginLeft="20dp"
+          android:layout_gravity="left">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="姓名:          "
-            android:textSize="@dimen/sp_16"
+            android:textSize="16sp"
             />
         <EditText
-            android:layout_width="@dimen/dp_100"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/name"
             android:hint="请输入姓名"/>
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginLeft="20dp"
         android:layout_gravity="left">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="身份证号: "
-            android:textSize="@dimen/sp_16"
+            android:textSize="16sp"
             />
         <EditText
-            android:layout_width="@dimen/dp_100"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:id="@+id/idcard"
-            android:hint="请输入姓名"/>
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="#00BCD4"
-    android:text="筛选"
-    android:layout_marginLeft="@dimen/dp_70"
-    android:onClick="search"/>
+            android:hint="请输入身份证号"/>
+    </LinearLayout>
+    </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+    <Button
+           android:layout_width="45dp"
+           android:layout_height="45dp"
+           android:background="@drawable/shaixuan"
+           android:layout_marginRight="10dp"
+           android:layout_gravity="center"
+           android:onClick="search"/>
+     <TextView
+           android:layout_width="60dp"
+           android:layout_height="20dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="5dp"
+           android:textColor="#2b2b28"
+           android:text="筛选"
+           android:gravity="center"/>
+</LinearLayout>
     </LinearLayout>
     <ListView
         android:id="@+id/searchroomlv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginTop="6dp"
         android:cacheColorHint="#00000000"
         android:divider="#ffffff"
-        android:dividerHeight="@dimen/dp_6"
-        android:paddingTop="@dimen/dp_15"
+        android:dividerHeight="6dp"
+        android:paddingTop="15dp"
         />
 
 </LinearLayout>
