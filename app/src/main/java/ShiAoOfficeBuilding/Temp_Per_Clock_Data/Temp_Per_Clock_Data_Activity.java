@@ -3,7 +3,7 @@ package ShiAoOfficeBuilding.Temp_Per_Clock_Data;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import android.view.MotionEvent;

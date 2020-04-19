@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +25,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -201,7 +202,7 @@ private returnData getwaterUse;
                     xAxis.setLabelCount(12, true);
                     xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
                     xAxis.setLabelRotationAngle(90);
-                    xAxis.setValueFormatter(new IAxisValueFormatter() {
+                    xAxis.setValueFormatter(new ValueFormatter() {
                         @Override
                         public String getFormattedValue(float value, AxisBase axis) {
                             return mList.get((int) value); //mList为存有月份的集合

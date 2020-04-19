@@ -1,8 +1,10 @@
 package ShiAoOfficeBuilding.viewPager;
 
-import android.support.v4.view.PagerAdapter;
+
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.ArrayList;
 
@@ -12,6 +14,7 @@ import java.util.ArrayList;
  * 首发微信公众号分享达人秀（ShareExpert）
  */
 public class ViewPagerAdapter extends PagerAdapter {
+
     private ArrayList<View> mPageList = null;
 
     public ViewPagerAdapter(ArrayList<View> pageList) {
